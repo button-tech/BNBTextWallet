@@ -11,6 +11,8 @@ namespace Discord.Bot.EF.Data
         public string NickName { get; set; }
         
         public string EthereumAddress { get; set; }
+        
+        public string BinanceAddress { get; set; }
 
         public DateTimeOffset FirstActionTime { get; set; }
     }
