@@ -63,6 +63,8 @@ async function getLsData(){
             const provider = new ethers.providers.JsonRpcProvider("https://rinkeby.infura.io");
             provider.sendTransaction(signedTransaction).then((tx) => {
                 console.log(tx);
+                let txHash = document.getElementById("txHash");
+                txHash.innerHTML = `<a href="https://rinkeby.etherscan.io/tx/${tx.hash}">TxHash</a>`
             });
         })
 
