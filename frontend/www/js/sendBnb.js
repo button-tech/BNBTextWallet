@@ -1,4 +1,5 @@
 let transactionBnbData = {};
+const backendURL = "https://discord.buttonwallet.tech";
 
 (async function() {
     transactionBnbData = await getTransactionBnbData();
