@@ -17,20 +17,38 @@ async function req(method, url, data) {
 
     return await $.ajax(settings);
 }
-async function setTransactionDataAndStartTimer() {
+async function setTransactionData() {
     let {
         currency,
         to,
         nickname,
         value,
+        from,
         valueInUsd
     } = transactionData;
 
     document.getElementById('currency').innerText = currency;
     document.getElementById('to').innerText = to;
+    document.getElementById('from').innerText = from;
     document.getElementById('nickname').innerText = nickname;
     document.getElementById('value').innerText = value;
     document.getElementById('usd-value').innerText = valueInUsd + ' $';
+}
+
+async function setTransactionBnbData() {
+    let {
+        currency,
+        to,
+        nickname,
+        value,
+        from,
+    } = transactionBnbData;
+
+    document.getElementById('currency').innerText = currency;
+    document.getElementById('to').innerText = to;
+    document.getElementById('from').innerText = from;
+    document.getElementById('nickname').innerText = nickname;
+    document.getElementById('value').innerText = value;
 }
 
 function getShortlink() {

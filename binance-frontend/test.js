@@ -1,5 +1,5 @@
 const TESTNET_ENDPOINT = "https://testnet-dex-asiapacific.binance.org";
-var mnemonic = ""; // your mnemonic
+let mnemonic = {}; // your mnemonic
 
 const getBaseClient = () => {
     return new Binance.Binance(TESTNET_ENDPOINT);

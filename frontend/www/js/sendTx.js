@@ -3,7 +3,7 @@ let transactionData = {};
 
 (async function setTransactionData() {
     transactionData = await getTransactionData();
-    await setTransactionDataAndStartTimer()
+    await setTransactionData()
 })();
 
 async function getTransactionData() {
@@ -22,7 +22,7 @@ async function getTransactionData() {
     }
 }
 
-async function getLsData(){
+async function sendEth(){
 
     let errorField = document.getElementById("badPin");
     errorField.style.display = "none";

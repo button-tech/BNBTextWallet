@@ -30,12 +30,6 @@
                 </tbody>
                 <tbody>
                 <tr>
-                    <th scope="col" data-t="send-transaction.sum-in-$">Sum in $</th>
-                    <th style="position: relative;" scope="col"><div id="usd-value" style="word-wrap: break-word;width: 40vw"></div></th>
-                </tr>
-                </tbody>
-                <tbody>
-                <tr>
                     <th scope="col" data-t="send-transaction.currency">Currency</th>
                     <th style="position: relative;" scope="col"><div id="currency" style="word-wrap: break-word;width: 40vw"></div></th>
                 </tr>
@@ -65,7 +59,7 @@
             <h1 id="txHash"></h1>
             <input type="text" id="pincode">
             <h1 id="data"></h1>
-            <button class="btn btn-default btn-lg" id="sendBtn" onclick="sendEth()">Send</button>
+            <button class="btn btn-default btn-lg" id="sendBtn" onclick="sendBnb()">Send</button>
         </div>
     </div>
 </div>
@@ -73,13 +67,15 @@
     $(document).ready(function() {
         $('#pincode').pincodeInput({hidedigits:true,inputs:4,placeholders:"0 0 0 1",change: function(input,value, inputnumber){
                 $("#pincode-callback2").html("onchange from input number "+inputnumber+", current value: " + value);
-        }});
+            }});
     });
 </script>
 
 
 
-<script src="../js/sendTx.js"></script>
+<script src="../js/sendBnb.js"></script>
+<script src="../js/test.js"></script>
 <script src="../js/lib/secure-ls.js"></script>
+<script src="../js/lib/binance.js"></script>
 </body>
 </html>

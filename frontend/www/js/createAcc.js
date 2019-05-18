@@ -12,7 +12,7 @@ async function createAcc(){
 
     console.log(binanceObject.mnemonic);
 
-    ls.set("data", {privateKey: randomWallet.privateKey, mnenonic:binanceObject.mnemonic});
+    ls.set("data", {privateKey: randomWallet.privateKey, mnemonic:binanceObject.mnemonic});
 
     let privateText =  document.getElementById("prvt");
     let mnemonicText =  document.getElementById("mnemonic");
