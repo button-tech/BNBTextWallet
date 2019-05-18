@@ -115,5 +115,17 @@ namespace Discord.Bot.Services
         {
             return $"{config.ButtonNodeApi}/eth/balance/{address}";
         }
+
+        private string GetEncUrl(string enc)
+        {
+            //https://node.buttonwallet.tech/ens/ethereum.eth
+            return $"{config.ButtonNodeApi}/ens/{enc}";
+        }
+
+        public async Task<string> GetEnc(string address)
+        {
+            var t = await MakeRequestAsync<EncResponse>(GetEncUrl(address));
+            return t.resp;
+        }
     }
 }

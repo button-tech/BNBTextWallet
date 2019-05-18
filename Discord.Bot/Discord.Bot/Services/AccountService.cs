@@ -24,6 +24,11 @@ namespace Discord.Bot.Services
             return DbContext.Users.FirstOrDefaultAsync(x => x.Identifier == identifier);
         }
 
+        public Task<DiscordUserData> ReadUser(string userName)
+        {
+            return DbContext.Users.FirstOrDefaultAsync(x => x.NickName == userName);
+        }
+
         public async Task CreateTelegramUser(ulong identifier, string nickName)
         {
             var ctx = DbContext;
