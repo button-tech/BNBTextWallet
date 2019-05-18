@@ -13,7 +13,6 @@ async function req(method, url, data) {
         settings.data = data;
         settings.headers = {
             "Content-Type": "application/json"
-
         };
     }
 
@@ -35,7 +34,6 @@ async function setTransactionBnbData() {
     let {
         currency,
         to,
-        nickname,
         value,
         from,
     } = transactionBnbData;
@@ -43,7 +41,6 @@ async function setTransactionBnbData() {
     document.getElementById('currency').innerText = currency;
     document.getElementById('to').innerText = to;
     document.getElementById('from').innerText = from;
-    document.getElementById('nickname').innerText = nickname;
     document.getElementById('value').innerText = value;
 }
 
