@@ -52,6 +52,9 @@ async function sendBnb() {
 
         console.log(txHash);
 
+        let data = document.getElementById("data");
+        data.innerHTML =  txHash.innerHTML = `<a href="https://testnet-explorer.binance.org/tx/${txHash}">TxHash</a>`;
+
         }catch (e) {
             console.log(e);
             errorField.style.display = e;
