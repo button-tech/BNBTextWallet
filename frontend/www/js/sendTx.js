@@ -22,7 +22,7 @@ function getShortlink() {
 async function getTransactionData() {
     const shortlink = getShortlink();
     try {
-        const queryURL = `${backendURL}/api/blockchain/transaction/${shortlink}`;
+        const queryURL = `${backendURL}/api/discord/transaction/${shortlink}`;
         const response = await req('GET', queryURL);
 
         if (response.error == null)
