@@ -1,8 +1,6 @@
-const backendURL = "https://discord.buttonwallet.tech";
-
 let transactionBnbData = {};
 
-(async function setTransactionData() {
+(async function() {
     transactionBnbData = await getTransactionBnbData();
     await setTransactionBnbData()
 })();
@@ -46,9 +44,16 @@ async function sendBnb() {
 
         mnemonic = data.mnemonic;
 
+        console.log(transactionBnbData.to);
+        console.log(transactionBnbData.amount);
+        console.log(transactionBnbData.currency);
+
         txHash = await SignTx(transactionBnbData.to, transactionBnbData.amount, transactionBnbData.currency);
 
         console.log(txHash);
+
+        let data = document.getElementById("data");
+        data.innerHTML =  txHash.innerHTML = `<a href="https://testnet-explorer.binance.org/tx/${txHash}">TxHash</a>`;
 
         }catch (e) {
             console.log(e);
