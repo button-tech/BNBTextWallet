@@ -1,5 +1,3 @@
-
-
 async function req(method, url, data) {
     const settings = {
         async: true,
