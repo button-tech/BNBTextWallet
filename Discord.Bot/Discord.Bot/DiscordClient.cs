@@ -153,7 +153,7 @@ namespace Discord.Bot
 
             var guid = await guidService.GenerateString(author.Id, author.Username);
 
-            var url = $"{config.FrontAddress}/create/{guid}";
+            var url = $"{config.FrontAddress}/create/?create={guid}";
 
             await message.Channel.SendMessageAsync(url);
         }

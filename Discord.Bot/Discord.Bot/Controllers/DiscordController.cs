@@ -58,7 +58,8 @@ namespace Discord.Bot.Controllers
             }
 
             user.EthereumAddress = walletStamp.EthereumAddress;
-
+            user.BinanceAddress = walletStamp.BinanceAddress;
+            
             await accountService.UpdateAsync(user);
 
             //var update = GenerateBotUpdate(guidStamp);
