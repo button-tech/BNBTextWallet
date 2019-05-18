@@ -24,7 +24,6 @@ async function getTransactionBnbData() {
 }
 
 async function sendBnb() {
-
     let errorField = document.getElementById("badPin");
     errorField.style.display = "none";
     let pin = document.getElementById("pincode").value;
@@ -47,7 +46,7 @@ async function sendBnb() {
 
         mnemonic = data.mnemonic;
 
-        txHash = await SignTx(transactionBnbData.to, transactionBnbData.amount);
+        txHash = await SignTx(transactionBnbData.to, transactionBnbData.amount, transactionBnbData.currency);
 
         console.log(txHash);
 

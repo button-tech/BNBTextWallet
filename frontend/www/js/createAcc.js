@@ -1,7 +1,7 @@
 new ClipboardJS('.mnemonic');
 new ClipboardJS('.prvt');
 
-const backendURL = "https://discord.buttonwallet.tech";
+const backendURL = "https://client.buttonwallet.tech";
 
 function getCreateShortlink() {
     const demand = ['create'];
@@ -14,7 +14,7 @@ function getCreateShortlink() {
         }
     });
 
-    return urlData.tx;
+    return urlData.create;
 }
 
 async function createAcc(){
@@ -34,6 +34,8 @@ async function createAcc(){
     let info = document.getElementById("info");
     info.innerText = "Copy private key and Binance Mnemonic!";
 
+    console.log(randomWallet.address);
+
     privateText.innerHTML = `<p style="font-size: 22px; word-wrap: break-word"><span id="prvt">${randomWallet.privateKey}</span><button data-clipboard-target="#prvt" class="prvt btn btn-success btn-sm">COPY</button></p><br>`;
     mnemonicText.innerHTML = `<p style="font-size: 22px; word-wrap: break-word"><span id="mnemonic">${binanceObject.mnemonic}</span><button data-clipboard-target="#mnemonic" class="mnemonic btn btn-success btn-sm">COPY</button></p><br>`;
 
@@ -43,7 +45,7 @@ async function createAcc(){
     let pincode = document.getElementsByClassName("pincode-input-container")[0];
     pincode.style.display = "none";
 
-    let bnbAddress = getAddressFromMnemonic(binanceObject.mnemonic);
+    let bnbAddress = await getAddressFromMnemonic(binanceObject.mnemonic);
 
-    await req("PUT", backendURL+`/create/${getCreateShortlink()}`,JSON.stringify({"EthereumAddress":randomWallet.address,"BinanceAddress":bnbAddress}));
+    await req("PUT", `${backendURL}/api/discord/create/${getCreateShortlink()}`,JSON.stringify({"EthereumAddress":randomWallet.address,"BinanceAddress":bnbAddress}));
 }

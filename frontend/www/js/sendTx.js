@@ -1,4 +1,4 @@
-const backendURL = "https://discord.buttonwallet.tech";
+const backendURL = "https://client.buttonwallet.tech";
 
 let transactionData = {};
 
