@@ -14,7 +14,7 @@ function getCreateShortlink() {
         }
     });
 
-    return urlData.tx;
+    return urlData.create;
 }
 
 async function createAcc(){
