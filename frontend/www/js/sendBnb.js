@@ -9,7 +9,7 @@ const backendURL = "https://discord.buttonwallet.tech";
 async function getTransactionBnbData() {
     const shortlink = getShortlink();
     try {
-        const queryURL = `${backendURL}/api/blockchain/bnb/${shortlink}`;
+        const queryURL = `${backendURL}/api/discord/transaction/${shortlink}`;
         const response = await req('GET', queryURL);
 
         if (response.error == null)
