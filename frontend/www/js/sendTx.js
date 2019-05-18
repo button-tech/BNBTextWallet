@@ -1,10 +1,25 @@
-const backendURL = "https://client.buttonwallet.tech";
+const backendURL = "https://discord.buttonwallet.tech";
+
 let transactionData = {};
 
-(async function setTransactionData() {
+(async function() {
     transactionData = await getTransactionData();
     await setTransactionData()
 })();
+
+function getShortlink() {
+    const demand = ['tx'];
+    const url = window.location;
+    const urlData = parseURL(url);
+
+    demand.forEach((property) => {
+        if (urlData[property] === undefined) {
+            throw new Error('URL doesn\'t contain all properties');
+        }
+    });
+
+    return urlData.tx;
+}
 
 async function getTransactionData() {
     const shortlink = getShortlink();

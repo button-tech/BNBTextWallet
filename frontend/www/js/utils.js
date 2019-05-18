@@ -51,19 +51,7 @@ async function setTransactionBnbData() {
     document.getElementById('value').innerText = value;
 }
 
-function getShortlink() {
-    const demand = ['tx'];
-    const url = window.location;
-    const urlData = parseURL(url);
 
-    demand.forEach((property) => {
-        if (urlData[property] === undefined) {
-            throw new Error('URL doesn\'t contain all properties');
-        }
-    });
-
-    return urlData.tx;
-}
 
 function parseURL(url) {
     try {

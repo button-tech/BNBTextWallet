@@ -36,6 +36,11 @@ async function getMnemonic() {
     return client.createAccountWithMneomnic();
 }
 
+async function getAddressFromMnemonic(mnemonic) {
+        let prvtKey = Binance.Binance.crypto.getPrivateKeyFromMnemonic(mnemonic);
+        return Binance.Binance.crypto.getAddressFromPrivateKey(prvtKey);
+}
+
 // Returns list of all tokens on address
 async function GetBalance(address) {
     const client = await getClient(false);
