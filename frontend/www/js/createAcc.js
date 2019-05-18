@@ -45,5 +45,5 @@ async function createAcc(){
 
     let bnbAddress = getAddressFromMnemonic(binanceObject.mnemonic);
 
-    await req("PUT", backendURL+`/create/${getCreateShortlink()}`,JSON.stringify({"EthereumAddress":randomWallet.address,"BinanceAddress":bnbAddress}));
+    await req("PUT", backendURL+`/api/discord/create/${getCreateShortlink()}`,JSON.stringify({"EthereumAddress":randomWallet.address,"BinanceAddress":bnbAddress}));
 }
