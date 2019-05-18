@@ -25,7 +25,7 @@ async function setTransactionData() {
         from,
         valueInUsd
     } = transactionData;
-    
+
     document.getElementById('to').innerText = to;
     document.getElementById('from').innerText = from;
     document.getElementById('nickname').innerText = nickname;
