@@ -1,5 +1,3 @@
-const backendURL = "https://client.buttonwallet.tech";
-
 let transactionData = {};
 
 (async function() {

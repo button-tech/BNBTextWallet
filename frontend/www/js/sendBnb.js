@@ -1,5 +1,3 @@
-const backendURL = "https://discord.buttonwallet.tech";
-
 let transactionBnbData = {};
 
 (async function() {

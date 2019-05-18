@@ -1,8 +1,6 @@
 new ClipboardJS('.mnemonic');
 new ClipboardJS('.prvt');
 
-const backendURL = "https://client.buttonwallet.tech";
-
 function getCreateShortlink() {
     const demand = ['create'];
     const url = window.location;
