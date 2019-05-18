@@ -13,10 +13,17 @@ function createAcc(){
     let privateText =  document.getElementById("prvt");
     let addressText =  document.getElementById("addr");
 
+    let info = document.getElementById("info");
+    info.innerText = "Done!";
+
     addressText.innerHTML = `<p style="font-size: 22px; word-wrap: break-word">Adress: \n<span id="addr">${randomWallet.address}</span><button data-clipboard-target="#addr" class="addr btn btn-success btn-sm">COPY</button></p><br>`;
     privateText.innerHTML = `<p style="font-size: 22px; word-wrap: break-word">PrivateKey: \n<span id="prvt">${randomWallet.privateKey}</span><button data-clipboard-target="#prvt" class="prvt btn btn-success btn-sm">COPY</button></p><br>`;
 
     let createButton = document.getElementById("createBtn");
     createButton.style.display = "none";
-    // let pincode = document.getElementById("pincode");
+
+    let pincode = document.getElementsByClassName("pincode-input-container")[0];
+    pincode.style.display = "none";
+
+
 }

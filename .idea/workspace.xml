@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77f443a2-9382-461f-a65e-a43f88c012e4" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/binance-frontend/binance.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/binance-frontend/index.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/binance-frontend/test.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/frontend/www/js/sendTx.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/www/js/sendTx.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/www/js/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/www/js/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/www/send/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/www/send/index.html" afterDir="false" />
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,26 +32,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="3" />
-          <entry key="js" value="4" />
+          <entry key="html" value="4" />
+          <entry key="js" value="6" />
+          <entry key="ts" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="3" />
-          <entry key="JavaScript" value="4" />
+          <entry key="HTML" value="4" />
+          <entry key="JavaScript" value="6" />
+          <entry key="TypeScript" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="21" />
-          <entry key="js" value="317" />
+          <entry key="html" value="170" />
+          <entry key="js" value="959" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="22" />
-          <entry key="JavaScript" value="316" />
+          <entry key="HTML" value="171" />
+          <entry key="JavaScript" value="958" />
         </counts>
       </usages-collector>
     </session>
@@ -85,8 +93,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/www/create/index.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="483">
               <caret line="23" column="86" selection-start-line="23" selection-start-column="77" selection-end-line="23" selection-end-column="86" />
+=======
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="12" selection-end-column="13" />
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/www/send/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="273">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+=======
+            <state relative-caret-position="221">
+              <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+              <folding>
+                <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#th#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#1;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#th#1;n#tr#0;n#tbody#1;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#th#1;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#th#1;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#th#1;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
             </state>
           </provider>
         </entry>
@@ -94,20 +133,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/www/js/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/www/sendTx/index.html">
-          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="378">
               <caret line="18" column="42" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="42" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+=======
+            <state relative-caret-position="245">
+              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
             </state>
           </provider>
         </entry>
@@ -115,12 +150,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/www/js/createAcc.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="441">
               <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+=======
+            <state relative-caret-position="170">
+              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/www/js/getData.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -153,6 +194,13 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="21">
               <caret line="1" selection-start-line="1" selection-end-line="1" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/www/js/sendTx.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="407">
+              <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
             </state>
           </provider>
         </entry>
@@ -168,7 +216,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>transactionData</find>
       <find>pincode</find>
+      <find>getTransactionData</find>
+      <find>getShortlink</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,11 +228,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/www/js/utils.js" />
-        <option value="$PROJECT_DIR$/frontend/www/sendTx/index.html" />
-        <option value="$PROJECT_DIR$/frontend/www/create/index.html" />
+        <option value="$PROJECT_DIR$/frontend/www/js/getData.js" />
         <option value="$PROJECT_DIR$/frontend/www/js/createAcc.js" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/binance-frontend/test.js" />
+=======
+        <option value="$PROJECT_DIR$/frontend/www/create/index.html" />
+        <option value="$PROJECT_DIR$/frontend/www/js/lib/web3.js" />
+        <option value="$PROJECT_DIR$/frontend/www/sendTx/index.html" />
+        <option value="$PROJECT_DIR$/frontend/www/send/index.html" />
+        <option value="$PROJECT_DIR$/frontend/www/js/utils.js" />
+        <option value="$PROJECT_DIR$/frontend/www/js/sendTx.js" />
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
       </list>
     </option>
   </component>
@@ -212,7 +270,31 @@
             <path>
               <item name="hackathon-eth-ny-discord" type="b2602c69:ProjectViewProjectNode" />
               <item name="hackathon-eth-ny-discord" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="binance-frontend" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hackathon-eth-ny-discord" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hackathon-eth-ny-discord" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hackathon-eth-ny-discord" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hackathon-eth-ny-discord" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="hackathon-eth-ny-discord" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hackathon-eth-ny-discord" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="www" type="462c0819:PsiDirectoryNode" />
+              <item name="send" type="462c0819:PsiDirectoryNode" />
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
             </path>
           </expand>
           <select />
@@ -254,13 +336,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558157656713</updated>
+<<<<<<< HEAD
       <workItem from="1558157657908" duration="2861000" />
       <workItem from="1558179074034" duration="1784000" />
+=======
+      <workItem from="1558157657908" duration="10593000" />
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="4645000" />
+=======
+    <option name="totallyTimeSpent" value="10593000" />
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="961" extended-state="6" />
@@ -284,6 +374,25 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.30725864" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Run" order="6" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -292,32 +401,71 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/www/create/index.html">
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="483">
           <caret line="23" column="86" selection-start-line="23" selection-start-column="77" selection-end-line="23" selection-end-column="86" />
+=======
+        <state relative-caret-position="220">
+          <caret line="4186" column="4" selection-start-line="4186" selection-start-column="4" selection-end-line="4186" selection-end-column="18" />
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/www/js/lib/web3.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="273">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+=======
+        <state relative-caret-position="626">
+          <caret line="33338" column="50" selection-start-line="33338" selection-start-column="50" selection-end-line="33338" selection-end-column="50" />
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/www/send/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="378">
+          <caret line="18" column="42" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="42" />
+=======
+        <state relative-caret-position="221">
+          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
+          <folding>
+            <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#th#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#1;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#th#1;n#tr#0;n#tbody#1;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#th#1;n#tr#0;n#tbody#2;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#th#1;n#tr#0;n#tbody#3;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#th#1;n#tr#0;n#tbody#4;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/www/create/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/www/js/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/www/sendTx/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="42" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="245">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/www/js/createAcc.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="441">
           <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
         </state>
@@ -348,6 +496,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
           <caret line="78" column="68" lean-forward="true" selection-start-line="78" selection-start-column="68" selection-end-line="78" selection-end-column="68" />
+=======
+        <state relative-caret-position="170">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/www/js/sendTx.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
+>>>>>>> ee8ce69dc168e8bd6dc68212de2d643fe6f9835f
         </state>
       </provider>
     </entry>
