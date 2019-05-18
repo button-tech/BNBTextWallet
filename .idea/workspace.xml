@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77f443a2-9382-461f-a65e-a43f88c012e4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/frontend/www/js/sendTx.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/www/send/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/www/create/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/www/create/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/www/js/createAcc.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/www/js/createAcc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/www/js/getData.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/www/js/sendTx.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/www/js/sendTx.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/www/js/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/www/js/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/www/sendTx/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/www/send/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/www/send/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -44,14 +39,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="164" />
-          <entry key="js" value="814" />
+          <entry key="html" value="170" />
+          <entry key="js" value="959" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="165" />
-          <entry key="JavaScript" value="813" />
+          <entry key="HTML" value="171" />
+          <entry key="JavaScript" value="958" />
         </counts>
       </usages-collector>
     </session>
@@ -70,8 +65,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/www/send/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="64" column="7" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
+            <state relative-caret-position="221">
+              <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
               <folding>
                 <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#th#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -91,8 +86,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/www/js/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="49" column="11" lean-forward="true" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
+            <state relative-caret-position="245">
+              <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -109,8 +104,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/www/js/sendTx.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
+            <state relative-caret-position="407">
+              <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -141,9 +136,10 @@
         <option value="$PROJECT_DIR$/frontend/www/js/getData.js" />
         <option value="$PROJECT_DIR$/frontend/www/js/createAcc.js" />
         <option value="$PROJECT_DIR$/frontend/www/create/index.html" />
-        <option value="$PROJECT_DIR$/frontend/www/js/utils.js" />
         <option value="$PROJECT_DIR$/frontend/www/js/lib/web3.js" />
         <option value="$PROJECT_DIR$/frontend/www/sendTx/index.html" />
+        <option value="$PROJECT_DIR$/frontend/www/send/index.html" />
+        <option value="$PROJECT_DIR$/frontend/www/js/utils.js" />
         <option value="$PROJECT_DIR$/frontend/www/js/sendTx.js" />
       </list>
     </option>
@@ -196,8 +192,7 @@
               <item name="hackathon-eth-ny-discord" type="462c0819:PsiDirectoryNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="www" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="send" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -234,12 +229,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558157656713</updated>
-      <workItem from="1558157657908" duration="9309000" />
+      <workItem from="1558157657908" duration="10593000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9309000" />
+    <option name="totallyTimeSpent" value="10593000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1440" height="799" extended-state="6" />
@@ -297,20 +292,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/www/js/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="49" column="11" lean-forward="true" selection-start-line="49" selection-start-column="11" selection-end-line="49" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/www/create/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/www/js/lib/web3.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="626">
@@ -318,17 +299,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/www/js/createAcc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/www/send/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="64" column="7" lean-forward="true" selection-start-line="64" selection-start-column="7" selection-end-line="64" selection-end-column="7" />
+        <state relative-caret-position="221">
+          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
           <folding>
             <element signature="n#style#0;n#th#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#th#1;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -344,10 +318,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/www/create/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/www/js/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/www/js/createAcc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/www/js/sendTx.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="41" column="56" selection-start-line="41" selection-start-column="56" selection-end-line="41" selection-end-column="56" />
+        <state relative-caret-position="407">
+          <caret line="57" column="10" selection-start-line="57" selection-start-column="10" selection-end-line="57" selection-end-column="10" />
         </state>
       </provider>
     </entry>

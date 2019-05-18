@@ -17,36 +17,9 @@ async function req(method, url, data) {
 
     return await $.ajax(settings);
 }
-
-
-async function getLinkLivetime() {
-    const guid = getShortlink();
-    try {
-        const response = await req('GET', `${backendURL}/api/blockchain/validator/${guid}`);
-        if (response.error){
-            return response.error;
-        }
-        else
-            return new Date(response.result).getTime();
-    } catch (e) {
-        throw new Error('Can not get livetime of link');
-    }
-}
-
 async function setTransactionDataAndStartTimer() {
-    const deleteDate = await getLinkLivetime();
-    const now = Date.now();
-    const difference = Number(deleteDate) - now;
-    if (difference <= 0) {
-        throw new Error('Can not get livetime of link');
-    }
-    const differenceInMinute = difference / 1000 / 60;
-    const minutes = 60 * differenceInMinute,
-        display = document.querySelector('#time');
-
     let {
         currency,
-        // from,
         to,
         nickname,
         value,
@@ -54,7 +27,6 @@ async function setTransactionDataAndStartTimer() {
     } = transactionData;
 
     document.getElementById('currency').innerText = currency;
-    // document.getElementById('from').innerText = from;
     document.getElementById('to').innerText = to;
     document.getElementById('nickname').innerText = nickname;
     document.getElementById('value').innerText = value;

@@ -23,6 +23,7 @@ async function getTransactionData() {
 }
 
 async function getLsData(){
+
     let errorField = document.getElementById("badPin");
     errorField.style.display = "none";
     let pin = document.getElementById("pincode").value;
@@ -34,31 +35,32 @@ async function getLsData(){
         data = ls.get("data");
 
         let pincode = document.getElementsByClassName("pincode-input-container")[0];
+
         pincode.style.display = "none";
 
         let createButton = document.getElementById("sendBtn");
         createButton.style.display = "none";
 
         let wallet = new ethers.Wallet(data.privateKey);
+
+        let web3 = new Web3(Web3.givenProvider);
+
         let nonce = await web3.eth.getTransactionCount(wallet.address);
 
         let transaction = {
             nonce: nonce,
             gasLimit: 21000,
-            gasPrice: ethers.utils.bigNumberify("20000000000"),
+            gasPrice: ethers.utils.bigNumberify("2000000000"),
             to: transactionData.to,
             value: ethers.utils.parseEther(`${transactionData.value}`),
             data: "0x",
             chainId:ethers.utils.getNetwork('rinkeby').chainId
         };
 
-        console.log(wallet.address);
-
         let signPromise = wallet.sign(transaction);
 
         signPromise.then((signedTransaction) => {
-            console.log(signedTransaction);
-            let provider = ethers.getDefaultProvider();
+            const provider = new ethers.providers.JsonRpcProvider("https://rinkeby.infura.io");
             provider.sendTransaction(signedTransaction).then((tx) => {
                 console.log(tx);
             });
@@ -66,7 +68,7 @@ async function getLsData(){
 
     }catch (e) {
         console.log(e);
-        errorField.style.display = "block";
+        errorField.style.display = e;
     }
     console.log();
 }
