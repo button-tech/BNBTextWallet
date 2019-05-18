@@ -19,15 +19,13 @@ async function req(method, url, data) {
 }
 async function setTransactionData() {
     let {
-        currency,
         to,
         nickname,
         value,
         from,
         valueInUsd
     } = transactionData;
-
-    document.getElementById('currency').innerText = currency;
+    
     document.getElementById('to').innerText = to;
     document.getElementById('from').innerText = from;
     document.getElementById('nickname').innerText = nickname;
