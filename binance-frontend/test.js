@@ -1,6 +1,11 @@
 const TESTNET_ENDPOINT = "https://testnet-dex-asiapacific.binance.org";
 var mnemonic = ""; // your mnemonic
 
+const getBaseClient = () => {
+    const client = new Binance.Binance(TESTNET_ENDPOINT);
+    return client;
+}
+
 const getClient = async (useAwaitSetPrivateKey = true, doNotSetPrivateKey = false) => {
     const client = new Binance.Binance(TESTNET_ENDPOINT);
     await client.initChain();
@@ -15,29 +20,27 @@ const getClient = async (useAwaitSetPrivateKey = true, doNotSetPrivateKey = fals
     // use default delegates (signing, broadcast)
     client.useDefaultSigningDelegate();
     client.useDefaultBroadcastDelegate();
-    return client
-}
-
-// Craeate private key
-async function CreateKey() {
-    const client = await getClient(false);
-    const pk = Binance.Binance.crypto.generatePrivateKey();
-    const res = client.recoverAccountFromPrivateKey(pk);
+        return client
+    };
+    
+    // Craeate private key
+    async function CreateKey() {
+        const client = await getBaseClient();
+        const pk = Binance.Binance.crypto.generatePrivateKey();
+        const res = client.recoverAccountFromPrivateKey(pk);
     console.log(res)
 }
 
-// Create Mnemonic 
+// Create Mnemonic
 async function CreateMnemonic() {
-    const client = await getClient(false)
-    const res = client.createAccountWithMneomnic()
-    console.log(res)
+    const client = await getBaseClient();
+    return client.createAccountWithMneomnic();
 }
 
 // Returns list of all tokens on address
 async function GetBalance(address) {
     const client = await getClient(false);
-    const res = await client.getBalance(address);
-    console.log(res);
+    return await client.getBalance(address);
 }
 
 // Create a simple tx
@@ -54,7 +57,7 @@ async function SignTx(to, sum, symbol = "BNB", message = "Frontend Tx") {
     const sequence = account.result && account.result.sequence;
 
     res = await client.transfer(addr, to, sum, symbol, message, sequence);
-    console.log(res.result[0].hash)
+    return res.result[0].hash
 }
 
 // CreateOrder
