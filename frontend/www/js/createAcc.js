@@ -43,7 +43,7 @@ async function createAcc(){
     let pincode = document.getElementsByClassName("pincode-input-container")[0];
     pincode.style.display = "none";
 
-    let bnbAddress = getAddressFromMnemonic(binanceObject.mnemonic);
+    let bnbAddress = await getAddressFromMnemonic(binanceObject.mnemonic);
 
-    await req("PUT", backendURL+`/api/discord/create/${getCreateShortlink()}`,JSON.stringify({"EthereumAddress":randomWallet.address,"BinanceAddress":bnbAddress}));
+    await req("PUT", `${backendURL}/api/discord/create/${getCreateShortlink()}`,JSON.stringify({"EthereumAddress":randomWallet.address,"BinanceAddress":bnbAddress}));
 }
