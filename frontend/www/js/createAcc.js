@@ -1,7 +1,7 @@
 new ClipboardJS('.mnemonic');
 new ClipboardJS('.prvt');
 
-const backendURL = "https://discord.buttonwallet.tech";
+const backendURL = "https://client.buttonwallet.tech";
 
 function getCreateShortlink() {
     const demand = ['create'];
@@ -33,6 +33,8 @@ async function createAcc(){
 
     let info = document.getElementById("info");
     info.innerText = "Copy private key and Binance Mnemonic!";
+
+    console.log(randomWallet.address);
 
     privateText.innerHTML = `<p style="font-size: 22px; word-wrap: break-word"><span id="prvt">${randomWallet.privateKey}</span><button data-clipboard-target="#prvt" class="prvt btn btn-success btn-sm">COPY</button></p><br>`;
     mnemonicText.innerHTML = `<p style="font-size: 22px; word-wrap: break-word"><span id="mnemonic">${binanceObject.mnemonic}</span><button data-clipboard-target="#mnemonic" class="mnemonic btn btn-success btn-sm">COPY</button></p><br>`;
