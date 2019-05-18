@@ -31,7 +31,7 @@ const getClient = async (useAwaitSetPrivateKey = true, doNotSetPrivateKey = fals
 }
 
 // Create Mnemonic
-async function CreateMnemonic() {
+async function getMnemonic() {
     const client = await getBaseClient();
     return client.createAccountWithMneomnic();
 }
