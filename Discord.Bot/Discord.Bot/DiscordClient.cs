@@ -67,9 +67,22 @@ namespace Discord.Bot
 
             if (message.Content == "/balance")
                 await Balance(message);
-            
+
             if (message.Content == "/token")
                 await TokenBalance(message);
+
+            //if (message.Content == "/send")
+            //  await 
+
+            if (message.Content == "/help")
+                await Help(message);
+        }
+
+        private async Task Help(SocketMessage message)
+        {
+            const string text =
+                "**Hello**, welcome to the BUTTON Wallet on Discord. You can send ETH, DAI, BNB transactions and trade on DEX! \nJust enter any of this commands.\n| Command | Parameters | Description |\n| -------- | -------- | -------- |\n| **/create**     |      | Create a wallet     |\n| **/balance**     |      |  Balance of all current currencies     |\n| **/token_balance**     |      | Balance of all tokens     |\n| **/send**    |  (amount), (address or nickname)   | Send a crypto     |\n|**/sell_order**     |    (symbol) (amount) (price)  | Put a sell order on Binance DEX 🔶     |\n| **/buy_order**     |   (symbol) (amount) (price)   | Put a buy order on Binance DEX 🔶     |\n| **/orders**     |      | Show all your  Binance DEX orders 🔥      |";
+            await message.Channel.SendMessageAsync(text);
         }
 
         private async Task Balance(SocketMessage message)
@@ -156,6 +169,10 @@ namespace Discord.Bot
             var url = $"{config.FrontAddress}/create/?create={guid}";
 
             await message.Channel.SendMessageAsync(url);
+        }
+
+        private async Task Send(SocketMessage message)
+        {
         }
     }
 }
