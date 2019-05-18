@@ -6,6 +6,7 @@ namespace Discord.Bot
     using System.Text;
     using System.Threading.Tasks;
     using DTO;
+    using EF.Data;
     using Services;
     using WebSocket;
 
@@ -14,17 +15,20 @@ namespace Discord.Bot
         private readonly GuidService guidService;
         private readonly CoursesService coursesService;
         private readonly BalanceService balanceService;
+        private readonly AccountService accountService;
         private readonly HostConfig config;
         private readonly DiscordSocketClient client;
 
         public DiscordClient(GuidService guidService,
             CoursesService coursesService,
             BalanceService balanceService,
+            AccountService accountService,
             HostConfig config)
         {
             this.guidService = guidService;
             this.coursesService = coursesService;
             this.balanceService = balanceService;
+            this.accountService = accountService;
             this.config = config;
 
             client = new DiscordSocketClient();
@@ -59,9 +63,6 @@ namespace Discord.Bot
             if (message.Author.Id == client.CurrentUser.Id)
                 return;
 
-            if (message.Content == "!ping")
-                await message.Channel.SendMessageAsync("ты че пес");
-
             if (message.Content == "/create")
                 await Create(message);
 
@@ -71,17 +72,18 @@ namespace Discord.Bot
             if (message.Content == "/token")
                 await TokenBalance(message);
 
-            //if (message.Content == "/send")
-            //  await 
-
             if (message.Content == "/help")
                 await Help(message);
+
+            if (message.Content.Contains("/send"))
+                await Send(message);
         }
 
         private async Task Help(SocketMessage message)
         {
             const string text =
-                "**Hello**, welcome to the BUTTON Wallet on Discord. You can send ETH, DAI, BNB transactions and trade on DEX! \nJust enter any of this commands.\n| Command | Parameters | Description |\n| -------- | -------- | -------- |\n| **/create**     |      | Create a wallet     |\n| **/balance**     |      |  Balance of all current currencies     |\n| **/token_balance**     |      | Balance of all tokens     |\n| **/send**    |  (amount), (address or nickname)   | Send a crypto     |\n|**/sell_order**     |    (symbol) (amount) (price)  | Put a sell order on Binance DEX 🔶     |\n| **/buy_order**     |   (symbol) (amount) (price)   | Put a buy order on Binance DEX 🔶     |\n| **/orders**     |      | Show all your  Binance DEX orders 🔥      |";
+                "**Hello**, welcome to the BUTTON Wallet on Discord. You can send ETH, DAI, BNB transactions and trade on DEX! \nJust enter any of this commands.\n\n**Command  Parameters  Description **\n\n **/create** - *Create a wallet*     \n **/balance** - *Balance of all current currencies*     \n **/token_balance** - *Balance of all tokens*     \n **/send** (token) (amount) (address or nickname, or ENS) - *Send a crypto*     \n **/sell_order** (symbol) (amount) (price) - *Put a sell order on Binance DEX* 🔶     \n **/buy_order** (symbol) (amount) (price) - *Put a buy order on Binance DEX* 🔶     \n **/orders** - *Show all your Binance DEX orders* 🔥      \n **/symbols** - *Show all Binance DEX exchange pairs* 🔄";
+
             await message.Channel.SendMessageAsync(text);
         }
 
@@ -171,8 +173,82 @@ namespace Discord.Bot
             await message.Channel.SendMessageAsync(url);
         }
 
+        //  /send token amount (address or nickname, or ENS) - *Send a crypto* 
         private async Task Send(SocketMessage message)
         {
+            var args = message.Content.Split(' ');
+            var token = args[1];
+            var amount = args[2];
+            var destination = args[3];
+
+            var author = await accountService.ReadUser(message.Author.Id);
+
+            var (_, type) = NickConverter.Convert(destination);
+
+            if (type == TransactionDestination.Nick)
+            {
+                var dest = await accountService.ReadUser(destination);
+                var trData = new TransactionData
+                {
+                    Currency = token.ToUpperInvariant(),
+                    From = GetAddress(token, author),
+                    To = GetAddress(token, dest),
+                    Value = amount
+                };
+
+                var guid = await guidService.GenerateString(author.Identifier, author.NickName, trData);
+                var url = $"{config.FrontAddress}/send/?tx={guid}";
+
+                await message.Channel.SendMessageAsync(url);
+            }
+
+            if (type == TransactionDestination.Wallet)
+            {
+                var trData = new TransactionData
+                {
+                    Currency = token.ToUpperInvariant(),
+                    From = GetAddress(token, author),
+                    To = destination,
+                    Value = amount
+                };
+
+                var guid = await guidService.GenerateString(author.Identifier, author.NickName, trData);
+                var url = $"{config.FrontAddress}/send/?tx={guid}";
+
+                await message.Channel.SendMessageAsync(url);
+            }
+
+            if (type == TransactionDestination.ENS)
+            {
+                var dest = await balanceService.GetEnc(destination);
+                var trData = new TransactionData
+                {
+                    Currency = "ETH",
+                    From = GetAddress(token, author),
+                    To = dest,
+                    Value = amount
+                };
+
+                var guid = await guidService.GenerateString(author.Identifier, author.NickName, trData);
+                var url = $"{config.FrontAddress}/send/?tx={guid}";
+
+                await message.Channel.SendMessageAsync(url);
+            }
+        }
+        
+        private string GetAddress(string token, DiscordUserData data)
+        {
+            if (token.ToUpperInvariant() == "BNB")
+            {
+                return data.BinanceAddress;
+            }
+
+            if (token.ToUpperInvariant() == "ETH")
+            {
+                return data.EthereumAddress;
+            }
+
+            throw new NotSupportedException();
         }
     }
 }

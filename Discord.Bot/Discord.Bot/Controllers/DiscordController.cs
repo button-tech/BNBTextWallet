@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Discord.Bot.Controllers
 {
+    using System;
+    using System.Globalization;
     using System.Threading.Tasks;
     using DTO;
     using Services;
@@ -18,6 +20,37 @@ namespace Discord.Bot.Controllers
         {
             this.guidService = guidService;
             this.accountService = accountService;
+        }
+        
+        [HttpGet("transaction/{guid}")]
+        public async Task<object> CheckTransaction(string guid)
+        {
+            var isGuidValid = await guidService.ValidateString(guid);
+            if (!isGuidValid)
+            {
+                var res = Json(new
+                    {
+                        error = "Guid is not exist",
+                        result = default(string)
+                    })
+                    .Value;
+                return NotFound(res);
+            }
+
+            var guidStamp = await guidService.GetGuidStamp(guid);
+            var transactionData = guidStamp.TransactionData;
+            
+            if (decimal.TryParse(guidStamp.TransactionData.Value, out var value))
+            {
+                value = Math.Round(value, 8);
+                guidStamp.TransactionData.Value = value.ToString(CultureInfo.CurrentCulture);
+            }
+
+            return Json(new
+            {
+                error = default(string),
+                result = transactionData
+            });
         }
 
         [HttpPut("create/{guid}")]
