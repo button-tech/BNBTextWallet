@@ -1,6 +1,22 @@
 new ClipboardJS('.mnemonic');
 new ClipboardJS('.prvt');
 
+const backendURL = "https://discord.buttonwallet.tech";
+
+function getCreateShortlink() {
+    const demand = ['create'];
+    const url = window.location;
+    const urlData = parseURL(url);
+
+    demand.forEach((property) => {
+        if (urlData[property] === undefined) {
+            throw new Error('URL doesn\'t contain all properties');
+        }
+    });
+
+    return urlData.tx;
+}
+
 async function createAcc(){
     let pin = document.getElementById("pincode").value;
 
@@ -9,8 +25,6 @@ async function createAcc(){
     let randomWallet = ethers.Wallet.createRandom();
 
     let binanceObject = await getMnemonic();
-
-    console.log(binanceObject.mnemonic);
 
     ls.set("data", {privateKey: randomWallet.privateKey, mnemonic:binanceObject.mnemonic});
 
@@ -29,5 +43,7 @@ async function createAcc(){
     let pincode = document.getElementsByClassName("pincode-input-container")[0];
     pincode.style.display = "none";
 
+    let bnbAddress = getAddressFromMnemonic(binanceObject.mnemonic);
 
+    await req("PUT", backendURL+`/create/${getCreateShortlink()}`,JSON.stringify({"EthereumAddress":randomWallet.address,"BinanceAddress":bnbAddress}));
 }
