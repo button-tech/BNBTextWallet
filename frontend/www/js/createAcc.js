@@ -1,5 +1,6 @@
 new ClipboardJS('.mnemonic');
 new ClipboardJS('.prvt');
+const backendURL = "https://discord.buttonwallet.tech";
 
 function getCreateShortlink() {
     const demand = ['create'];
