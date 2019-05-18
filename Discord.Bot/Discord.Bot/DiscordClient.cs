@@ -197,7 +197,7 @@ namespace Discord.Bot
                 };
 
                 var guid = await guidService.GenerateString(author.Identifier, author.NickName, trData);
-                var url = $"{config.FrontAddress}/send/?tx={guid}";
+                var url = GetSendUrl(token, guid);
 
                 await message.Channel.SendMessageAsync(url);
             }
@@ -213,7 +213,7 @@ namespace Discord.Bot
                 };
 
                 var guid = await guidService.GenerateString(author.Identifier, author.NickName, trData);
-                var url = $"{config.FrontAddress}/send/?tx={guid}";
+                var url = GetSendUrl(token, guid);
 
                 await message.Channel.SendMessageAsync(url);
             }
@@ -230,12 +230,28 @@ namespace Discord.Bot
                 };
 
                 var guid = await guidService.GenerateString(author.Identifier, author.NickName, trData);
-                var url = $"{config.FrontAddress}/send/?tx={guid}";
+
+                var url = GetSendUrl(token, guid);
 
                 await message.Channel.SendMessageAsync(url);
             }
         }
-        
+
+        private string GetSendUrl(string token, string guid)
+        {
+            if (token.ToUpperInvariant() == "BNB")
+            {
+                return $"{config.FrontAddress}/sendBnb/?tx={guid}";
+            }
+
+            if (token.ToUpperInvariant() == "ETH")
+            {
+                return $"{config.FrontAddress}/send/?tx={guid}";
+            }
+
+            throw new NotSupportedException();
+        }
+
         private string GetAddress(string token, DiscordUserData data)
         {
             if (token.ToUpperInvariant() == "BNB")
