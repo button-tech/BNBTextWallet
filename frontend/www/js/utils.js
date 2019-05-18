@@ -20,17 +20,13 @@ async function req(method, url, data) {
 async function setTransactionData() {
     let {
         to,
-        nickname,
         value,
         from,
-        valueInUsd
     } = transactionData;
 
     document.getElementById('to').innerText = to;
     document.getElementById('from').innerText = from;
-    document.getElementById('nickname').innerText = nickname;
     document.getElementById('value').innerText = value;
-    document.getElementById('usd-value').innerText = valueInUsd + ' $';
 }
 
 async function setTransactionBnbData() {
