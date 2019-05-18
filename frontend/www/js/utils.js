@@ -52,7 +52,6 @@ async function setTransactionBnbData() {
 }
 
 
-
 function parseURL(url) {
     try {
         const params = url.search.substring(1);
