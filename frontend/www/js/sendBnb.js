@@ -44,6 +44,10 @@ async function sendBnb() {
 
         mnemonic = data.mnemonic;
 
+        console.log(transactionBnbData.to);
+        console.log(transactionBnbData.amount);
+        console.log(transactionBnbData.currency);
+
         txHash = await SignTx(transactionBnbData.to, transactionBnbData.amount, transactionBnbData.currency);
 
         console.log(txHash);
