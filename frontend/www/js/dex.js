@@ -47,12 +47,11 @@ async function dex() {
 
         mnemonic = data.mnemonic;
 
-        console.log(mnemonic);
-
-        let hash = await CreateOrder("000-EF6_BNB", urlData.operation, urlData.amount, urlData.price);
+        let response = await CreateOrder("000-EF6_BNB", urlData.operation, urlData.amount, urlData.price);
 
         let info = document.getElementById("data");
-        info.innerHTML =  `${hash}`;
+        info.innerHTML =  `${response.result[0].data}`;
+        console.log(response);
 
     }catch (e) {
         errorField.display = "block";

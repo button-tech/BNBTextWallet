@@ -50,8 +50,6 @@ async function send() {
 
         let data = ls.get("data");
 
-        console.log(data);
-
         let pincode = document.getElementsByClassName("pincode-input-container")[0];
 
         pincode.style.display = "none";
@@ -61,10 +59,6 @@ async function send() {
         createButton.style.display = "none";
 
         mnemonic = data.mnemonic;
-
-        console.log(transactionBnbData.to);
-        console.log(transactionBnbData.value);
-        console.log(transactionBnbData.currency);
 
         txHash = await SignTx(transactionBnbData.to, transactionBnbData.value, transactionBnbData.currency);
 
