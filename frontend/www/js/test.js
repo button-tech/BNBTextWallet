@@ -1,5 +1,5 @@
-const TESTNET_ENDPOINT = "https://testnet-dex-asiapacific.binance.org";
-var mnemonic = ""; // your mnemonic
+const TESTNET_ENDPOINT = "https://testnet-dex.binance.org";
+// var mnemonic = "offer caution gift cross surge pretty orange during eye soldier popular holiday mention east eight office fashion ill parrot vault rent devote earth cousin"; // your mnemonic
 
 const getBaseClient = () => {
     return new Binance.Binance(TESTNET_ENDPOINT);
@@ -81,7 +81,7 @@ async function CreateOrder(symbol, type, amount, price) {
     const accCode = Binance.Binance.crypto.decodeAddress(addr);
     const account = await client._httpClient.request("get", `/api/v1/account/${addr}`);
     const sequence = account.result && account.result.sequence;
-    const res1 = await client.placeOrder(addr, symbol, final, price, amount, sequence)
+    return await client.placeOrder(addr, symbol, final, price, amount, sequence)
 }
 
 async function Markets() {
