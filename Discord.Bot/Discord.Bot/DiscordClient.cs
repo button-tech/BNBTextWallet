@@ -16,6 +16,7 @@ namespace Discord.Bot
         private readonly CoursesService coursesService;
         private readonly BalanceService balanceService;
         private readonly AccountService accountService;
+        private readonly BinanceService binanceService;
         private readonly HostConfig config;
         private readonly DiscordSocketClient client;
 
@@ -23,12 +24,14 @@ namespace Discord.Bot
             CoursesService coursesService,
             BalanceService balanceService,
             AccountService accountService,
+            BinanceService binanceService,
             HostConfig config)
         {
             this.guidService = guidService;
             this.coursesService = coursesService;
             this.balanceService = balanceService;
             this.accountService = accountService;
+            this.binanceService = binanceService;
             this.config = config;
 
             client = new DiscordSocketClient();
@@ -77,6 +80,19 @@ namespace Discord.Bot
 
             if (message.Content.Contains("/send"))
                 await Send(message);
+
+            if (message.Content.Contains("/symbols"))
+                await Symbols(message);
+        }
+
+        private async Task Symbols(SocketMessage message)
+        {
+            var symbolMaps = await binanceService.GetSymbols();
+
+            var result = symbolMaps.Take(10).Select(x => $"{x.ToString()}\n")
+                .Aggregate("", (s, s1) => s + s1);
+
+            await message.Channel.SendMessageAsync(result);
         }
 
         private async Task Help(SocketMessage message)
