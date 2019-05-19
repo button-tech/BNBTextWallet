@@ -111,6 +111,11 @@ namespace Discord.Bot.Services
             return $"{config.ButtonNodeApi}/eth/tokenBalance/{erc20Address}/{ethAddress}";
         }
 
+        private string GetBnbUrl(string bnb)
+        {
+            return $"https://testnet-dex-asiapacific.binance.org/api/v1/account/{bnb}";
+        }
+
         private string GetEthUrl(string address)
         {
             return $"{config.ButtonNodeApi}/eth/balance/{address}";
@@ -118,14 +123,24 @@ namespace Discord.Bot.Services
 
         private string GetEncUrl(string enc)
         {
-            //https://node.buttonwallet.tech/ens/ethereum.eth
             return $"{config.ButtonNodeApi}/ens/{enc}";
         }
 
         public async Task<string> GetEnc(string address)
         {
-            var t = await MakeRequestAsync<EncResponse>(GetEncUrl(address));
-            return t.resp;
+            var response = await MakeRequestAsync<EncResponse>(GetEncUrl(address));
+            return response.resp;
+        }
+
+        public async Task<decimal> GetBnbBalance(ulong identifier)
+        {
+            var dbUser = await accountService.ReadUser(identifier);
+
+            var bnb = await MakeRequestAsync<BnbRoot>(GetBnbUrl(dbUser.BinanceAddress));
+            var mb = bnb.balances.FirstOrDefault(x => x.symbol.ToUpperInvariant() == "BNB");
+
+            decimal.TryParse(mb?.free, out var result);
+            return mb != null ? result : 0m;
         }
     }
 }
