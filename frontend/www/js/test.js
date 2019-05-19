@@ -1,4 +1,5 @@
-const TESTNET_ENDPOINT = "https://testnet-dex-asiapacific.binance.org";
+let TESTNET_ENDPOINT = "https://testnet-dex-asiapacific.binance.org";
+// https://testnet-dex.binance.org
 // var mnemonic = "offer caution gift cross surge pretty orange during eye soldier popular holiday mention east eight office fashion ill parrot vault rent devote earth cousin"; // your mnemonic
 
 const getBaseClient = () => {
@@ -76,6 +77,8 @@ async function CreateOrder(symbol, type, amount, price) {
     } else if (type === "buy") {
         final = 1
     }
+    TESTNET_ENDPOINT = "https://testnet-dex.binance.org";
+
     const client = await getClient(true);
     const addr = Binance.Binance.crypto.getAddressFromPrivateKey(client.privateKey);
     const accCode = Binance.Binance.crypto.decodeAddress(addr);
