@@ -140,11 +140,11 @@ namespace Discord.Bot
 
             var orders = await binanceService.GetOrders(author.Id);
 
-            if (orders.total < 0)
+            if (orders?.order.Length == 0)
                 await message.Channel.SendMessageAsync("You have no open orders :(");
             else
             {
-                var text = orders.order.Take(10).Select(x => $"{x.ToString()}\n")
+                var text = orders?.order.Take(10).Select(x => $"{x.ToString()}\n")
                     .Aggregate("", (s, s1) => s + s1);
 
                 await message.Channel.SendMessageAsync(text);
@@ -168,8 +168,9 @@ namespace Discord.Bot
 
         private async Task Help(SocketMessage message)
         {
-            const string text = "**Hello**, welcome to the BUTTON Wallet on Discord. You can send **ETH** and **BNB** transactions and trade on **DEX**! \nJust enter any of this commands.\n\n**Command  Parameters  Description **\n\n**/create** - *Create a wallet*\n\n**/import** - *Import a wallet*\n\n**/balance** - *Balance of all current currencies*\n\n**/send** (token) (amount) (address or nickname, or ENS) - *Send a crypto*\n\n**/sell_order** (symbol) (amount) (price) - *Put a sell order on Binance DEX* 🔶\n\n**/buy_order** (symbol) (amount) (price) - *Put a buy order on Binance DEX* 🔶\n\n**/orders** - *Show all your Binance DEX orders* 🔥\n\n**/symbols** - *Show all Binance DEX exchange pairs* 🔄";
-                
+            const string text =
+                "**Hello**, welcome to the BUTTON Wallet on Discord. You can send **ETH** and **BNB** transactions and trade on **DEX**! \nJust enter any of this commands.\n\n**Command  Parameters  Description **\n\n**/create** - *Create a wallet*\n\n**/import** - *Import a wallet*\n\n**/balance** - *Balance of all current currencies*\n\n**/send** (token) (amount) (address or nickname, or ENS) - *Send a crypto*\n\n**/sell_order** (symbol) (amount) (price) - *Put a sell order on Binance DEX* 🔶\n\n**/buy_order** (symbol) (amount) (price) - *Put a buy order on Binance DEX* 🔶\n\n**/orders** - *Show all your Binance DEX orders* 🔥\n\n**/symbols** - *Show all Binance DEX exchange pairs* 🔄";
+
             await message.Channel.SendMessageAsync(text);
         }
 

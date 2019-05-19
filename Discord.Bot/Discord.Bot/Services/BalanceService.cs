@@ -137,7 +137,7 @@ namespace Discord.Bot.Services
             var dbUser = await accountService.ReadUser(identifier);
             try
             {
-                var bnb = await MakeRequestAsync<BnbRoot>(GetBnbUrl(dbUser.BinanceAddress));
+                var bnb = await MakeRequestAsync<Bnb>(GetBnbUrl(dbUser.BinanceAddress));
                 var mb = bnb.balances.FirstOrDefault(x => x.symbol.ToUpperInvariant() == "BNB");
 
                 decimal.TryParse(mb?.free, out var result);

@@ -1,6 +1,8 @@
-namespace Discord.Bot.Services
+namespace Discord.Bot.DTO
 {
-    public class BnbRoot
+    using Services;
+
+    public class Bnb
     {
         public int account_number { get; set; }
         public string address { get; set; }
