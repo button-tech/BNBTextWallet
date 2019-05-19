@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://bootswatch.com/4/pulse/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap-pincode-input.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
     <script src="../js/lib/bootstrap-pincode-input.js"></script>
@@ -20,42 +20,57 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center">
-            <table class="table table-hover table-dark">
+        <div style="margin-top: 5em" class="col-12 text-center">
+            <h3>Details of transaction</h3>
+            <table class="table table-hover ">
                 <tbody>
                 <tr>
-                    <th scope="col" data-t="send-transaction.sum">Sum</th>
-                    <th style="position: relative;" scope="col"><div id="value" style="word-wrap: break-word;width: 40vw"></div></th>
+                    <th scope="col" data-t="send-transaction.sum">Amount</th>
+                    <th style="position: relative;" scope="col">
+                        <div id="value" style="word-wrap: break-word;width: 40vw"></div>
+                    </th>
                 </tr>
                 </tbody>
                 <tbody>
                 <tr>
-                    <th scope="col" data-t="common.to">To</th>
-                    <th style="position: relative;" scope="col"><div id="to" style="word-wrap: break-word;width: 40vw"></div></th>
+                    <th scope="col" data-t="common.to">Address to send</th>
+                    <th style="position: relative;" scope="col">
+                        <div id="to" style="word-wrap: break-word;width: 40vw"></div>
+                    </th>
                 </tr>
                 </tbody>
 
                 <tbody>
                 <tr>
-                    <th scope="col" data-t="common.to">From</th>
-                    <th style="position: relative;" scope="col"><div id="from" style="word-wrap: break-word;width: 40vw"></div></th>
+                    <th scope="col" data-t="common.to">My address</th>
+                    <th style="position: relative;" scope="col">
+                        <div id="from" style="word-wrap: break-word;width: 40vw"></div>
+                    </th>
                 </tr>
                 </tbody>
 
             </table>
-            <h1 style="display: none" id="badPin">Bad pincode!</h1>
-            <h1 id="txHash"></h1>
-            <input type="text" id="pincode">
-            <h1 id="data"></h1>
-            <button class="btn btn-default btn-lg" id="sendBtn" onclick="sendEth()">Send</button>
         </div>
+        <br>
+        <br>
+    </div>
+    <div class="col-12 text-center">
+        <h2>Enter your pincode to sign transaction</h2>
+        <h1 style="display: none" id="badPin">Bad pincode!</h1>
+        <h1 id="txHash"></h1>
+        <input type="text" id="pincode">
+        <h1 id="data"></h1>
+        <button class="btn btn-primary btn-round btn-lg" id="sendBtn" onclick="sendEth()">Send</button>
     </div>
 </div>
+</div>
 <script>
-    $(document).ready(function() {
-        $('#pincode').pincodeInput({hidedigits:true,inputs:4,placeholders:"0 0 0 1",change: function(input,value, inputnumber){
-                $("#pincode-callback2").html("onchange from input number "+inputnumber+", current value: " + value);
-        }});
+    $(document).ready(function () {
+        $('#pincode').pincodeInput({
+            hidedigits: true, inputs: 4, placeholders: "0 0 0 1", change: function (input, value, inputnumber) {
+                $("#pincode-callback2").html("onchange from input number " + inputnumber + ", current value: " + value);
+            }
+        });
     });
 </script>
 

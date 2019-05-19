@@ -5,11 +5,12 @@
 
 
 .pincode-input-text-masked {
+	font-size: 40px !important;
   font-family: pincode-input-mask;
 }
 
 .pincode-input-container.touch .pincode-input-text-masked {
-  letter-spacing:24px !important;
+  letter-spacing:64px !important;
 }
 
 .pincode-input-container {
@@ -29,8 +30,12 @@
 	border-left-width:0px;
 }
 .pincode-input-text, .form-control.pincode-input-text {
-	width:35px;
+	width:80px;
+	height:80px;
 	float:left;
+	align-items: center;
+	align-content: center;
+	text-align-all: center !important;
 }
 .pincode-input-error{
 	clear:both;
@@ -38,8 +43,8 @@
 
 .pincode-input-container.touch .touchwrapper{
 	position:relative;
-	height:34px;
-	margin-right:5px;
+	height:40px;
+	margin-right:9px;
 	overflow:hidden;
 }
 .pincode-input-container.touch .touchwrapper .pincode-input-text{
@@ -51,7 +56,7 @@
     display: block;
     background-color:transparent;
     background:transparent;
-    letter-spacing:20px;
+    letter-spacing:50px;
 }
 
 
@@ -72,10 +77,14 @@
     table-layout:fixed;
 }
 .pincode-input-container.touch .touchwrapper .touchtable td{
-	border-right:1px solid #ccc;
+	border-right:2px solid #ccc;
 }
 .pincode-input-container.touch .touchwrapper .touchtable td.last{
 	border-right:0;
+}
+
+input {
+	text-align: center !important;
 }
 
 

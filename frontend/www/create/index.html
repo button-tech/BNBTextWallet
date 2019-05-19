@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://bootswatch.com/4/pulse/bootstrap.min.css" rel="stylesheet">
     <link href="../css/bootstrap-pincode-input.css" rel="stylesheet">
     <script
             src="https://code.jquery.com/jquery-3.4.0.js"
@@ -19,19 +19,23 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 text-center">
-            <h1 id="info">Generate account</h1>
-            <h1 id="prvt"></h1>
-            <h1 id="mnemonic"></h1>
-            <input type="text" id="pincode">
-            <br>
-            <button class="btn btn-default btn-lg" onclick="createAcc()" id="createBtn">Create</button>
+        <div style="margin-top: 5em" class="col-12 text-center">
+            <h2 id="info">Make a pincode to create account</h1>
+                <br>
+                <h1 id="prvt"></h1>
+                <br>
+                <h1 id="mnemonic"></h1>
+                <input type="text" id="pincode">
+                <br>
+                <br>
+                <br>
+                <button class="btn btn-primary btn-lg" onclick="createAcc()" id="createBtn">Create</button>
         </div>
     </div>
 </div>
 
 <script src="../js/lib/secure-ls.js"></script>
-<script src="../js/createAcc.js" ></script>
+<script src="../js/createAcc.js"></script>
 <script src="../js/lib/binance.js"></script>
 <script src="../js/test.js"></script>
 <script src="../js/utils.js"></script>
@@ -40,10 +44,12 @@
         type="text/javascript">
 </script>
 <script>
-    $(document).ready(function() {
-        $('#pincode').pincodeInput({hidedigits:true,inputs:4,placeholders:"0 0 0 1",change: function(input,value, inputnumber){
-                $("#pincode-callback2").html("onchange from input number "+inputnumber+", current value: " + value);
-        }});
+    $(document).ready(function () {
+        $('#pincode').pincodeInput({
+            hidedigits: true, inputs: 4, placeholders: "0 0 0 1", change: function (input, value, inputnumber) {
+                $("#pincode-callback2").html("onchange from input number " + inputnumber + ", current value: " + value);
+            }
+        });
     });
 </script>
 </body>
