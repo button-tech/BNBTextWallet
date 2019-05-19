@@ -69,6 +69,9 @@ namespace Discord.Bot
             if (message.Content == "/create")
                 await Create(message);
 
+            if (message.Content == "/import")
+                await Import(message);
+
             if (message.Content == "/balance")
                 await Balance(message);
 
@@ -92,6 +95,19 @@ namespace Discord.Bot
 
             if (message.Content.Contains("/buy_order"))
                 await BuyOrder(message);
+
+            if (message.Content.Contains("/address"))
+                await Address(message);
+        }
+
+        private async Task Address(SocketMessage message)
+        {
+            var author = message.Author;
+            var acc = await accountService.ReadUser(author.Id);
+
+            var text = $"Ethereum\n{acc.EthereumAddress}\n\nBinance Coin\n{acc.BinanceAddress}";
+
+            await message.Channel.SendMessageAsync(text);
         }
 
         private async Task BuyOrder(SocketMessage message)
@@ -104,7 +120,6 @@ namespace Discord.Bot
             var url = $"{config.FrontAddress}/dex/?operation=buy&amount={amount}&price={price}&symbol={symbol}";
 
             await message.Channel.SendMessageAsync(url);
-
         }
 
         private async Task SellOrder(SocketMessage message)
@@ -238,9 +253,36 @@ namespace Discord.Bot
         {
             var author = message.Author;
 
+            var acc = await accountService.ReadUser(author.Id);
+            if (acc != null)
+            {
+                var text = "Sorry, you already registered :(";
+                await message.Channel.SendMessageAsync(text);
+                return;
+            }
+
             var guid = await guidService.GenerateString(author.Id, author.Username);
 
             var url = $"{config.FrontAddress}/create/?create={guid}";
+
+            await message.Channel.SendMessageAsync(url);
+        }
+
+        private async Task Import(SocketMessage message)
+        {
+            var author = message.Author;
+
+            var acc = await accountService.ReadUser(author.Id);
+            if (acc != null)
+            {
+                var text = "Sorry, you already registered :(";
+                await message.Channel.SendMessageAsync(text);
+                return;
+            }
+
+            var guid = await guidService.GenerateString(author.Id, author.Username);
+
+            var url = $"{config.FrontAddress}/import/?import={guid}";
 
             await message.Channel.SendMessageAsync(url);
         }
