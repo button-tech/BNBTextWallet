@@ -86,6 +86,37 @@ namespace Discord.Bot
 
             if (message.Content.Contains("/orders"))
                 await Orders(message);
+
+            if (message.Content.Contains("/sell_order"))
+                await SellOrder(message);
+
+            if (message.Content.Contains("/buy_order"))
+                await BuyOrder(message);
+        }
+
+        private async Task BuyOrder(SocketMessage message)
+        {
+            var args = message.Content.Split(' ');
+            var symbol = args[1];
+            var amount = args[2];
+            var price = args[3];
+
+            var url = $"{config.FrontAddress}/dex/?operation=buy&amount={amount}&price={price}&symbol={symbol}";
+
+            await message.Channel.SendMessageAsync(url);
+
+        }
+
+        private async Task SellOrder(SocketMessage message)
+        {
+            var args = message.Content.Split(' ');
+            var symbol = args[1];
+            var amount = args[2];
+            var price = args[3];
+
+            var url = $"{config.FrontAddress}/dex/?operation=sell&amount={amount}&price={price}&symbol={symbol}";
+
+            await message.Channel.SendMessageAsync(url);
         }
 
         private async Task Orders(SocketMessage message)
@@ -111,7 +142,7 @@ namespace Discord.Bot
             var toSelect = 10;
             if (count.Length > 1)
                 toSelect = int.Parse(count[1]);
-            
+
             var symbolMaps = await binanceService.GetSymbols();
 
             var result = symbolMaps.Take(toSelect).Select(x => $"{x.ToString()}\n")
