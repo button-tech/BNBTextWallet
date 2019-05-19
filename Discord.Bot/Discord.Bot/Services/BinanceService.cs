@@ -9,14 +9,17 @@ namespace Discord.Bot.Services
     public class BinanceService
     {
         private readonly IHttpClientFactory factory;
+        private readonly AccountService accountService;
 
         private HttpClient ApiClient => factory.CreateClient();
-        
-        public BinanceService(IHttpClientFactory httpClientFactory)
+
+        public BinanceService(IHttpClientFactory httpClientFactory,
+            AccountService accountService)
         {
             factory = httpClientFactory;
+            this.accountService = accountService;
         }
-        
+
         private async Task<T> MakeRequestAsync<T>(string url)
         {
             try
@@ -38,12 +41,13 @@ namespace Discord.Bot.Services
         }
 
         private const string SymbolsUrl = "https://testnet-dex.binance.org/api/v1/markets";
-        
+        private string OrderUrl(string a) => $"https://testnet-dex.binance.org/api/v1/orders/open?address={a}";
+
         public async Task<SymbolMap[]> GetSymbols()
         {
             var symbols = await MakeRequestAsync<BinanceSymbol[]>(SymbolsUrl);
 
-            var result = symbols.Select(x => new SymbolMap()
+            var result = symbols.Select(x => new SymbolMap
             {
                 Base = x.base_asset_symbol,
                 Quote = x.quote_asset_symbol
@@ -51,14 +55,21 @@ namespace Discord.Bot.Services
 
             return result.ToArray();
         }
-        
-        
+
+        public async Task<OrderList> GetOrders(ulong identifier)
+        {
+            var acc = await accountService.ReadUser(identifier);
+
+            var result = await MakeRequestAsync<OrderList>(OrderUrl(acc.BinanceAddress));
+
+            return result;
+        }
     }
 
     public class SymbolMap
     {
         public string Base { get; set; }
-        
+
         public string Quote { get; set; }
 
         public override string ToString()
@@ -66,7 +77,7 @@ namespace Discord.Bot.Services
             return $"{Base} => {Quote}";
         }
     }
-    
+
     public class BinanceSymbol
     {
         public string base_asset_symbol { get; set; }
@@ -75,7 +86,7 @@ namespace Discord.Bot.Services
         public string quote_asset_symbol { get; set; }
         public string tick_size { get; set; }
     }
-    
+
     public class Order
     {
         public string orderId { get; set; }
@@ -95,6 +106,11 @@ namespace Discord.Bot.Services
         public string lastExecutedPrice { get; set; }
         public string lastExecutedQuantity { get; set; }
         public string transactionHash { get; set; }
+
+        public override string ToString()
+        {
+            return $"{symbol}; Type {type}; Price {price}";
+        }
     }
 
     public class OrderList
