@@ -95,17 +95,22 @@ namespace Discord.Bot
             var ethCourses = await coursesService.GetCryptoCourses();
             var ethUsd = eth.Eth * ethCourses.ETH.USD;
 
-            var dai = await balanceService.GetErc20TokenBalanceAsync(author.Id, "DAI");
-            var daiCourse = await coursesService.GetTokenCourse("DAI");
-            var daiUsd = daiCourse.USD * dai;
-
+            //var dai = await balanceService.GetErc20TokenBalanceAsync(author.Id, "DAI");
+            //var daiCourse = await coursesService.GetTokenCourse("DAI");
+            //var daiUsd = daiCourse.USD * dai;
 
             var ethText = FormatBalance("ETH", "Ethereum", eth.Eth, ethUsd);
-            var daiText = FormatBalance("DAI", "Dai Stablecoin v1.0", dai, daiUsd);
+            //var daiText = FormatBalance("DAI", "Dai Stablecoin v1.0", dai, daiUsd);
 
-            var totalSum = $"Total ≈ {ethUsd + daiUsd:0.00}$";
+            var bnb = await balanceService.GetBnbBalance(author.Id);
+            var bnbCourse = 27.61m;
+            var bnbUsd = bnb * bnbCourse;
 
-            var answer = $"{ethText}{daiText}{totalSum}";
+            var bnbText = FormatBalance("BNB", " Binance Coin", bnb, bnbUsd);
+
+            var totalSum = $"Total ≈ {ethUsd + bnbUsd:0.00}$";
+
+            var answer = $"{ethText}{bnbText}{totalSum}";
 
             await message.Channel.SendMessageAsync(answer);
         }

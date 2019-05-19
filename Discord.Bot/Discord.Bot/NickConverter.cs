@@ -7,6 +7,11 @@ namespace Discord.Bot
         //Eth
         private static readonly Regex EthRegex = new Regex(@"^0x[a-fA-F0-9]{40}$");
 
+        private static bool IsBNB(string input)
+        {
+            return input.StartsWith("tbnb") && input.Length == 43;
+        }
+
         public static (string, TransactionDestination) Convert(string inp)
         {
             if (string.IsNullOrEmpty(inp))
@@ -15,11 +20,12 @@ namespace Discord.Bot
             if (inp.StartsWith('@'))
                 return (inp, TransactionDestination.Nick);
 
-            if (EthRegex.IsMatch(inp))
+            if (EthRegex.IsMatch(inp) || IsBNB(inp))
                 return (inp, TransactionDestination.Wallet);
 
             if (inp.Contains('.'))
                 return (inp, TransactionDestination.ENS);
+
 
             return (inp, TransactionDestination.Nick);
         }
