@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap-pincode-input.css" rel="stylesheet">
+    <script
+            src="https://code.jquery.com/jquery-3.4.0.js"
+            integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+            crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="../js/lib/bootstrap-pincode-input.js"></script>
+</head>
+<body>
+<h1 id="info">Import account</h1>
+<h1 id="1">ETH private key:</h1>
+<input id="eth" type="text">
+<h1 id="2">Binance mnemonic:</h1>
+<input id="bnb" type="text">
+<h1 id="3">Code:</h1>
+<input type="text" id="pincode">
+<button id="createBtn" onclick="importAcc()">OK</button>
+<script>
+    $(document).ready(function() {
+        $('#pincode').pincodeInput({hidedigits:true,inputs:4,placeholders:"0 0 0 1",change: function(input,value, inputnumber){
+                $("#pincode-callback2").html("onchange from input number "+inputnumber+", current value: " + value);
+            }});
+    });
+</script>
+<script charset="utf-8"
+        src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
+        type="text/javascript">
+</script>
+<script src="../js/lib/secure-ls.js"></script>
+<script src="../js/import.js" ></script>
+<script src="../js/lib/binance.js"></script>
+<script src="../js/test.js"></script>
+<script src="../js/utils.js"></script>
+</body>
+</html>

@@ -36,7 +36,7 @@ async function getTransactionBnbData() {
     }
 }
 
-async function sendBnb() {
+async function Dex() {
 
     let errorField = document.getElementById("badPin");
 
@@ -50,8 +50,6 @@ async function sendBnb() {
 
         let data = ls.get("data");
 
-        console.log(data);
-
         let pincode = document.getElementsByClassName("pincode-input-container")[0];
 
         pincode.style.display = "none";
@@ -62,19 +60,13 @@ async function sendBnb() {
 
         mnemonic = data.mnemonic;
 
-        console.log(transactionBnbData.to);
-        console.log(transactionBnbData.value);
-        console.log(transactionBnbData.currency);
-
-        txHash = await SignTx(transactionBnbData.to, transactionBnbData.value, transactionBnbData.currency);
-
-        console.log(txHash);
+        await CreateOrder("000-EF6_BNB", "buy", 0.01, 0.001);
 
         let info = document.getElementById("data");
-        info.innerHTML =  txHash.innerHTML = `<a href="https://testnet-explorer.binance.org/tx/${txHash}">TxHash</a>`;
+        info.innerHTML = "Nice!)";
 
-        }catch (e) {
+        } catch (e) {
             console.log(e);
-            errorField.style.display = e;
+            errorField.innerText = e;
         }
 }

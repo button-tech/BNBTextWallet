@@ -34,6 +34,7 @@
             services.AddSingleton<GuidService>();
             services.AddSingleton<AccountService>();
             services.AddSingleton<CoursesService>();
+            services.AddSingleton<BinanceService>();
 
             var hostConfig = new HostConfig
             {

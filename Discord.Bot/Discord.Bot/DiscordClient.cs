@@ -16,6 +16,7 @@ namespace Discord.Bot
         private readonly CoursesService coursesService;
         private readonly BalanceService balanceService;
         private readonly AccountService accountService;
+        private readonly BinanceService binanceService;
         private readonly HostConfig config;
         private readonly DiscordSocketClient client;
 
@@ -23,12 +24,14 @@ namespace Discord.Bot
             CoursesService coursesService,
             BalanceService balanceService,
             AccountService accountService,
+            BinanceService binanceService,
             HostConfig config)
         {
             this.guidService = guidService;
             this.coursesService = coursesService;
             this.balanceService = balanceService;
             this.accountService = accountService;
+            this.binanceService = binanceService;
             this.config = config;
 
             client = new DiscordSocketClient();
@@ -77,6 +80,75 @@ namespace Discord.Bot
 
             if (message.Content.Contains("/send"))
                 await Send(message);
+
+            if (message.Content.Contains("/symbols"))
+                await Symbols(message);
+
+            if (message.Content.Contains("/orders"))
+                await Orders(message);
+
+            if (message.Content.Contains("/sell_order"))
+                await SellOrder(message);
+
+            if (message.Content.Contains("/buy_order"))
+                await BuyOrder(message);
+        }
+
+        private async Task BuyOrder(SocketMessage message)
+        {
+            var args = message.Content.Split(' ');
+            var symbol = args[1];
+            var amount = args[2];
+            var price = args[3];
+
+            var url = $"{config.FrontAddress}/dex/?operation=buy&amount={amount}&price={price}&symbol={symbol}";
+
+            await message.Channel.SendMessageAsync(url);
+
+        }
+
+        private async Task SellOrder(SocketMessage message)
+        {
+            var args = message.Content.Split(' ');
+            var symbol = args[1];
+            var amount = args[2];
+            var price = args[3];
+
+            var url = $"{config.FrontAddress}/dex/?operation=sell&amount={amount}&price={price}&symbol={symbol}";
+
+            await message.Channel.SendMessageAsync(url);
+        }
+
+        private async Task Orders(SocketMessage message)
+        {
+            var author = message.Author;
+
+            var orders = await binanceService.GetOrders(author.Id);
+
+            if (orders.total < 0)
+                await message.Channel.SendMessageAsync("You have no open orders :(");
+            else
+            {
+                var text = orders.order.Take(10).Select(x => $"{x.ToString()}\n")
+                    .Aggregate("", (s, s1) => s + s1);
+
+                await message.Channel.SendMessageAsync(text);
+            }
+        }
+
+        private async Task Symbols(SocketMessage message)
+        {
+            var count = message.Content.Split(' ');
+            var toSelect = 10;
+            if (count.Length > 1)
+                toSelect = int.Parse(count[1]);
+
+            var symbolMaps = await binanceService.GetSymbols();
+
+            var result = symbolMaps.Take(toSelect).Select(x => $"{x.ToString()}\n")
+                .Aggregate("", (s, s1) => s + s1);
+
+            await message.Channel.SendMessageAsync(result);
         }
 
         private async Task Help(SocketMessage message)
@@ -95,12 +167,7 @@ namespace Discord.Bot
             var ethCourses = await coursesService.GetCryptoCourses();
             var ethUsd = eth.Eth * ethCourses.ETH.USD;
 
-            //var dai = await balanceService.GetErc20TokenBalanceAsync(author.Id, "DAI");
-            //var daiCourse = await coursesService.GetTokenCourse("DAI");
-            //var daiUsd = daiCourse.USD * dai;
-
             var ethText = FormatBalance("ETH", "Ethereum", eth.Eth, ethUsd);
-            //var daiText = FormatBalance("DAI", "Dai Stablecoin v1.0", dai, daiUsd);
 
             var bnb = await balanceService.GetBnbBalance(author.Id);
             var bnbCourse = 27.61m;
