@@ -84,7 +84,7 @@ async function sendEth(){
 
     }catch (e) {
         console.log(e);
-        errorField.style.display = e;
+        errorField.innerText = e;
     }
     console.log();
 }

@@ -24,27 +24,20 @@
             <table class="table table-hover table-dark">
                 <tbody>
                 <tr>
-                    <th scope="col" data-t="send-transaction.sum">Sum</th>
-                    <th style="position: relative;" scope="col"><div id="value" style="word-wrap: break-word;width: 40vw"></div></th>
+                    <th scope="col" data-t="send-transaction.sum">Operation:</th>
+                    <th style="position: relative;" scope="col"><div id="operation" style="word-wrap: break-word;width: 40vw"></div></th>
                 </tr>
                 </tbody>
                 <tbody>
                 <tr>
-                    <th scope="col" data-t="send-transaction.currency">Currency</th>
-                    <th style="position: relative;" scope="col"><div id="currency" style="word-wrap: break-word;width: 40vw"></div></th>
+                    <th scope="col" data-t="send-transaction.currency">Amount:</th>
+                    <th style="position: relative;" scope="col"><div id="amount" style="word-wrap: break-word;width: 40vw"></div></th>
                 </tr>
                 </tbody>
                 <tbody>
                 <tr>
-                    <th scope="col" data-t="common.to">To</th>
-                    <th style="position: relative;" scope="col"><div id="to" style="word-wrap: break-word;width: 40vw"></div></th>
-                </tr>
-                </tbody>
-
-                <tbody>
-                <tr>
-                    <th scope="col" data-t="common.to">From</th>
-                    <th style="position: relative;" scope="col"><div id="from" style="word-wrap: break-word;width: 40vw"></div></th>
+                    <th scope="col" data-t="common.to">Price:</th>
+                    <th style="position: relative;" scope="col"><div id="price" style="word-wrap: break-word;width: 40vw"></div></th>
                 </tr>
                 </tbody>
 
@@ -53,7 +46,7 @@
             <h1 id="txHash"></h1>
             <input type="text" id="pincode">
             <h1 id="data"></h1>
-            <button class="btn btn-default btn-lg" id="sendBtn" onclick="sendBnb()">Send</button>
+            <button class="btn btn-default btn-lg" id="sendBtn" onclick="dex()">Send</button>
         </div>
     </div>
 </div>
@@ -64,11 +57,9 @@
             }});
     });
 </script>
-
-<script src="../js/sendBnb.js"></script>
 <script src="../js/test.js"></script>
+<script src="../js/dex.js"></script>
 <script src="../js/lib/secure-ls.js"></script>
 <script src="../js/lib/binance.js"></script>
-<script src="../js/utils.js"></script>
 </body>
 </html>
