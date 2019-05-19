@@ -36,7 +36,7 @@ async function getTransactionBnbData() {
     }
 }
 
-async function Dex() {
+async function sendBnb() {
 
     let errorField = document.getElementById("badPin");
 
