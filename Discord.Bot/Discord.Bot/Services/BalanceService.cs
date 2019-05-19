@@ -135,12 +135,18 @@ namespace Discord.Bot.Services
         public async Task<decimal> GetBnbBalance(ulong identifier)
         {
             var dbUser = await accountService.ReadUser(identifier);
+            try
+            {
+                var bnb = await MakeRequestAsync<BnbRoot>(GetBnbUrl(dbUser.BinanceAddress));
+                var mb = bnb.balances.FirstOrDefault(x => x.symbol.ToUpperInvariant() == "BNB");
 
-            var bnb = await MakeRequestAsync<BnbRoot>(GetBnbUrl(dbUser.BinanceAddress));
-            var mb = bnb.balances.FirstOrDefault(x => x.symbol.ToUpperInvariant() == "BNB");
-
-            decimal.TryParse(mb?.free, out var result);
-            return mb != null ? result : 0m;
+                decimal.TryParse(mb?.free, out var result);
+                return mb != null ? result : 0m;
+            }
+            catch (Exception ex)
+            {
+                return 0m;
+            }
         }
     }
 }

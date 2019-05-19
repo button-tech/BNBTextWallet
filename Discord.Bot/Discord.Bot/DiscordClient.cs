@@ -168,9 +168,8 @@ namespace Discord.Bot
 
         private async Task Help(SocketMessage message)
         {
-            const string text =
-                "**Hello**, welcome to the BUTTON Wallet on Discord. You can send ETH, DAI, BNB transactions and trade on DEX! \nJust enter any of this commands.\n\n**Command  Parameters  Description **\n\n **/create** - *Create a wallet*     \n **/balance** - *Balance of all current currencies*     \n **/token_balance** - *Balance of all tokens*     \n **/send** (token) (amount) (address or nickname, or ENS) - *Send a crypto*     \n **/sell_order** (symbol) (amount) (price) - *Put a sell order on Binance DEX* 🔶     \n **/buy_order** (symbol) (amount) (price) - *Put a buy order on Binance DEX* 🔶     \n **/orders** - *Show all your Binance DEX orders* 🔥      \n **/symbols** - *Show all Binance DEX exchange pairs* 🔄";
-
+            const string text = "**Hello**, welcome to the BUTTON Wallet on Discord. You can send **ETH** and **BNB** transactions and trade on **DEX**! \nJust enter any of this commands.\n\n**Command  Parameters  Description **\n\n**/create** - *Create a wallet*\n\n**/import** - *Import a wallet*\n\n**/balance** - *Balance of all current currencies*\n\n**/send** (token) (amount) (address or nickname, or ENS) - *Send a crypto*\n\n**/sell_order** (symbol) (amount) (price) - *Put a sell order on Binance DEX* 🔶\n\n**/buy_order** (symbol) (amount) (price) - *Put a buy order on Binance DEX* 🔶\n\n**/orders** - *Show all your Binance DEX orders* 🔥\n\n**/symbols** - *Show all Binance DEX exchange pairs* 🔄";
+                
             await message.Channel.SendMessageAsync(text);
         }
 
