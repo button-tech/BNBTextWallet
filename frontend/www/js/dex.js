@@ -1,7 +1,5 @@
 let urlData = {};
 
-let mnemonic;
-
 let deparam = (function(d,x,params,pair,i) {
     return function (qs) {
         params = {};
