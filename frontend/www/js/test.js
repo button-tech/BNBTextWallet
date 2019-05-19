@@ -1,4 +1,4 @@
-const TESTNET_ENDPOINT = "https://testnet-dex.binance.org";
+const TESTNET_ENDPOINT = "https://testnet-dex.binance.org/api/v1/broadcast";
 // var mnemonic = "offer caution gift cross surge pretty orange during eye soldier popular holiday mention east eight office fashion ill parrot vault rent devote earth cousin"; // your mnemonic
 
 const getBaseClient = () => {
