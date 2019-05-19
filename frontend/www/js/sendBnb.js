@@ -37,15 +37,18 @@ async function getTransactionBnbData() {
 }
 
 async function sendBnb() {
+
     let errorField = document.getElementById("badPin");
+
     errorField.style.display = "none";
+
     let pin = document.getElementById("pincode").value;
+
     let ls = new Storage.SecureLs({encodingType: 'aes', encryptionSecret: pin});
 
-    let data;
     try {
 
-        data = ls.get("data");
+        let data = ls.get("data");
 
         console.log(data);
 
@@ -60,15 +63,15 @@ async function sendBnb() {
         mnemonic = data.mnemonic;
 
         console.log(transactionBnbData.to);
-        console.log(transactionBnbData.amount);
+        console.log(transactionBnbData.value);
         console.log(transactionBnbData.currency);
 
-        txHash = await SignTx(transactionBnbData.to, transactionBnbData.amount, transactionBnbData.currency);
+        txHash = await SignTx(transactionBnbData.to, transactionBnbData.value, transactionBnbData.currency);
 
         console.log(txHash);
 
-        let data = document.getElementById("data");
-        data.innerHTML =  txHash.innerHTML = `<a href="https://testnet-explorer.binance.org/tx/${txHash}">TxHash</a>`;
+        let info = document.getElementById("data");
+        info.innerHTML =  txHash.innerHTML = `<a href="https://testnet-explorer.binance.org/tx/${txHash}">TxHash</a>`;
 
         }catch (e) {
             console.log(e);
