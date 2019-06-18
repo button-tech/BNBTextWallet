@@ -216,17 +216,9 @@ function buildQrPage(qrId) {
     saveButton.setAttribute("id", "save-qr-code");
 
     form.appendChild(input);
-
-    mainDiv.appendChild(document.createElement("br"));
-    mainDiv.appendChild(document.createElement("br"));
     mainDiv.appendChild(h1);
-    mainDiv.appendChild(document.createElement("br"));
     mainDiv.appendChild(h5);
-    mainDiv.appendChild(document.createElement("br"));
-    mainDiv.appendChild(document.createElement("br"));
     mainDiv.appendChild(img);
-    mainDiv.appendChild(document.createElement("br"));
-    mainDiv.appendChild(document.createElement("br"));
     mainDiv.appendChild(saveButton);
     mainDiv.appendChild(form);
 

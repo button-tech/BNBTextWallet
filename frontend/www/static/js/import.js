@@ -36,7 +36,6 @@ async function importAcc() {
         pincode.style.display = "none";
 
         let bnbAddress = await getAddressFromMnemonic(bnbPrvt.value);
-        let wallet = new ethers.Wallet(ethPrvt.value);
 
         console.log(wallet.address);
         console.log(bnbAddress);
