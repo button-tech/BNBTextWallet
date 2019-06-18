@@ -58,7 +58,7 @@ async function importAcc() {
         two.style.display = "none";
         three.style.display = "none";
 
-    }catch (e) {
+    } catch (e) {
         console.log(e);
         info.innerText = "Error!"
     }

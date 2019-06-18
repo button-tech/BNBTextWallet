@@ -38,37 +38,22 @@ async function getTransactionBnbData() {
 
 async function send() {
 
-    let errorField = document.getElementById("badPin");
-
-    errorField.style.display = "none";
-
-    let pin = document.getElementById("pincode").value;
-
-    let ls = new Storage.SecureLs({encodingType: 'aes', encryptionSecret: pin});
-
     try {
 
-        let data = ls.get("data");
-
-        let pincode = document.getElementsByClassName("pincode-input-container")[0];
-
-        pincode.style.display = "none";
+        let mnemonicFromStorage = localStorage.getItem("mnemonic");
 
         let createButton = document.getElementById("sendBtn");
 
         createButton.style.display = "none";
 
-        mnemonic = data.mnemonic;
+        mnemonic = mnemonicFromStorage;
 
         txHash = await SignTx(transactionBnbData.to, transactionBnbData.value, transactionBnbData.currency);
-
-        console.log(txHash);
 
         let info = document.getElementById("data");
         info.innerHTML =  txHash.innerHTML = `<a href="https://testnet-explorer.binance.org/tx/${txHash}">TxHash</a>`;
 
     }catch (e) {
         console.log(e);
-        errorField.style.display = e;
     }
 }

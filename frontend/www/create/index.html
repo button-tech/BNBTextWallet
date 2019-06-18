@@ -4,53 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://bootswatch.com/4/pulse/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/bootstrap-pincode-input.css" rel="stylesheet">
-    <script
-            src="https://code.jquery.com/jquery-3.4.0.js"
-            integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
-            crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-    <script src="../js/lib/bootstrap-pincode-input.js"></script>
-    <title>Document</title>
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/create.css" rel="stylesheet">
+    <link href="../static/css/material-kit.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+    <title>Create</title>
 </head>
 <body>
+<div id="container">
+    <div id="main">
+        <img src="../static/img/preview.png" width="350" style="display: block;margin-left: auto;margin-right: auto">
+        <div class="col-12 text-center">
+            <h2 id="info">Create account</h2>
 
-<div class="container">
-    <div class="row">
-        <div style="margin-top: 5em" class="col-12 text-center">
-            <h2 id="info">Make a pincode to create account</h2>
-                <br>
-                <h1 id="prvt"></h1>
-                <br>
-                <h1 id="mnemonic"></h1>
-                <input type="text" id="pincode">
-                <br>
-                <br>
-                <br>
-                <button class="btn btn-primary btn-lg" onclick="createAcc()" id="createBtn">Create</button>
+            <!--<div class="form-group">-->
+
+                <input type="password" placeholder="Password" id="password"
+                           class="form-control" style="width: 200px;margin: 0 auto;"/>
+
+                <div id="password-info" class="password-info">
+                    <p id="password-info-len"><i class="material-icons text-danger"></i> <span>Length
+                                        must be at least 8
+                                        characters</span></p>
+                    <p id="password-info-cap"><i class="material-icons text-danger"></i>At
+                                        least one capital
+                                        character</span>
+                    </p>
+                    <p id="password-info-small"><i class="material-icons text-danger"></i> <span>At
+                                        least one small
+                                        character</span>
+                    </p>
+                    <p id="password-info-num"><i class="material-icons text-danger"></i> <span>At
+                                        least one number
+                                        character</span>
+                    </p>
+                </div>
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                    <input autocomplete="off" type="password" placeholder="Repeat password" id="password-again"
+                           class="form-control" class="form-control" style="width: 200px;margin: 0 auto;"/>
+                <div style="margin-top: 10px; display: none" id="repeat-password"
+                     class="repeat-info">
+                    <p style="font-weight: bold; color: red; font-size: 12px;"><i
+                            style="font-size: 9px; font-weight: bold"
+                            class="material-icons text-danger"></i> <span>Passwords don't match</span></p>
+                </div>
+            <!--</div>-->
+                <button class="btn" style="border-radius: 40px;background-color: black"  onclick="checkAllAndGeneratePicture()" id="createBtn">Create</button>
         </div>
     </div>
 </div>
 
-<script src="../js/lib/secure-ls.js"></script>
-<script src="../js/createAcc.js"></script>
-<script src="../js/lib/binance.js"></script>
-<script src="../js/test.js"></script>
-<script src="../js/utils.js"></script>
-<script charset="utf-8"
-        src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
-        type="text/javascript">
-</script>
-<script>
-    $(document).ready(function () {
-        $('#pincode').pincodeInput({
-            hidedigits: true, inputs: 4, placeholders: "0 0 0 1", change: function (input, value, inputnumber) {
-                $("#pincode-callback2").html("onchange from input number " + inputnumber + ", current value: " + value);
-            }
-        });
-    });
-</script>
+<script src="../static/js/lib/popper.min.js"></script>
+<script src="../static/js/lib/bootstrap-material-design.min.js"></script>
+<script src="../static/js/create.js"></script>
+<script src="../static/js/lib/qrious.min.js"></script>
+<script src="../static/js/lib/binance.js"></script>
+<script src="../static/js/lib/crypto-js.js"></script>
+<script src="../static/js/test.js"></script>
+<script src="../static/js/utils.js"></script>
 </body>
 </html>
