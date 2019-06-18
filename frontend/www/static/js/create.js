@@ -132,6 +132,7 @@ function getCreateShortlink() {
 }
 
 function createQRCode(tagForQR, data) {
+    console.log(data)
     return new Promise((resolve) => {
         const qr = new QRious({
             element: document.getElementById(tagForQR),
@@ -153,8 +154,8 @@ async function addSaveButton(tag) {
     }
 }
 
-function encryptAccount(mnemonic, password) {
-    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(mnemonic), password);
+function encryptAccount(binanceObject, password) {
+    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(binanceObject), password);
     return encrypted.toString();
 }
 
@@ -163,26 +164,18 @@ async function create(){
 
     let binanceObject = await getMnemonic();
 
-    localStorage.setItem("mnemonic", binanceObject.mnemonic);
-
-    let info = document.getElementById("info");
-
-    info.innerText = "Save QR code with mnemonic!";
+    localStorage.setItem("accountData", JSON.stringify(binanceObject));
 
     let createButton = document.getElementById("createBtn");
 
     createButton.style.display = "none";
 
-    const encrypted = encryptAccount(binanceObject.mnemonic, document.getElementById("password").value);
-
+    const encrypted = encryptAccount(binanceObject, document.getElementById("password").value);
     const qrId = "qr";
 
     showQrPage(qrId);
-
     await createQRCode(qrId, encrypted);
-
     await addSaveButton(qrId);
-
 
     let bnbAddress = await getAddressFromMnemonic(binanceObject.mnemonic);
     await req("PUT", `${backendURL}/api/discord/create/${getCreateShortlink()}`,JSON.stringify({"BinanceAddress":bnbAddress}));
