@@ -26,66 +26,6 @@ async function importQrCode() {
     }
 }
 
-
-async function getMnemonicFromQrCode() {
-    const qrData = await loadImage() && await decodeQR();
-    const decryptedData = decryptData(qrData, getPassword());
-    localStorage.setItem("accountData", decryptedData);
-    return decryptedData;
-}
-
-function loadImage() {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        if (!files[0]) {
-            reject("you dont add QR");
-        }
-
-        reader.readAsDataURL(files[0]);
-        reader.onload = function () {
-            document.getElementById("qrImage").src = reader.result;
-            document.getElementById("qrImage").onload = () => {
-                resolve(true)
-            };
-        }
-    });
-}
-
-function decodeQR() {
-    return new Promise((resolve, reject) => {
-        const img = document.getElementById("qrImage");
-        const canvasElement = document.getElementById('canvas');
-        const ctx = canvasElement.getContext("2d");
-        ctx.drawImage(img, 0, 0, canvasElement.width, canvasElement.height);
-
-        const imageData = ctx.getImageData(0, 0, canvasElement.width, canvasElement.height);
-        const encodedData = jsQR(imageData.data, imageData.width, imageData.height, {
-            inversionAttempts: "dontInvert",
-        });
-
-        encodedData ? resolve(encodedData.data) : reject("Failed to decode QR Code")
-    });
-}
-
-function decryptData(cipher, password) {
-    if (!password)
-        throw "You don't enter password";
-
-    try {
-        const bytes = CryptoJS.AES.decrypt(cipher, password);
-        const data = bytes.toString(CryptoJS.enc.Utf8);
-
-        if(data && JSON.parse(data).mnemonic);
-            return data;
-    } catch (e) {
-        throw "Bad QR";
-    }
-}
-
-function getPassword() {
-    return document.getElementById('password').value;
-}
-
 function addHint(errorObject, fieldId = "error") {
     document.getElementById(fieldId).innerHTML = ` 
     <div class="alert alert-danger col-12" id="Error_pop">
@@ -118,15 +58,6 @@ function uploadLink(e) {
 }
 
 
-function deleteFile() {
-    location.reload();
-}
-
-function showFile(file) {
-    let name = file.name + ` <a href="#" class="btn btn-danger btn-sm" style="border-radius: 12px" onclick="deleteFile()">delete</a><br>`;
-    $('#file-upload-file').html('<p id="imageName">' + name + '</p>');
-}
-
 function addFiles() {
     const file = document.querySelector("input[type=file]").files[0];
     files[0] = file;
@@ -155,6 +86,8 @@ function addFiles() {
         }
     });
 }
+
+
 
 async function Done(data) {
     let bnbAddress = await getAddressFromMnemonic(data.mnemonic);
