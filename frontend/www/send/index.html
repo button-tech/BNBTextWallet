@@ -2,79 +2,110 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+          name='viewport'/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://bootswatch.com/4/pulse/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/bootstrap-pincode-input.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
-    <script src="../js/lib/bootstrap-pincode-input.js"></script>
-    <script src="../js/utils.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.js"></script>
-    <script charset="utf-8"
-            src="https://cdn.ethers.io/scripts/ethers-v4.min.js"
-            type="text/javascript">
-    </script>
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <link href="../static/css/custom.css" rel="stylesheet">
+    <link href="../static/css/loader.css" rel="stylesheet">
+    <link href="../static/css/material-kit.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+    <script src="../static/js/loader.js"></script>
     <title>Send</title>
 </head>
 <body>
 <div class="container">
+    <div class="col-12">
+        <div class='loader' style="display: block" id="loader">
+            <div class='loader-container'>
+                <div class="col-12 text-center">
+                    <img style="max-width: 300px" class="logo" src="../static/img/binance.png">
+                </div>
+                <div class="col-12 bg">
+                    <div class="loader-spin" id="loader-4">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<canvas id="canvas" width="300" height="300" style="display: none"></canvas>
+<img src="#" id="qrImage" align="left" style="display: none">
+<p id="error"></p>
+<div class="container" id="container">
     <div class="row">
-        <div style="margin-top: 5em" class="col-12 text-center">
-            <h3>Details of transaction</h3>
-            <table class="table table-hover ">
+        <div class="col-12 text-center">
+            <table class="table table-hover table-light" style="margin: 50px auto; width: 40%;">
                 <tbody>
-                <tr>
-                    <th scope="col" data-t="send-transaction.sum">Amount</th>
-                    <th style="position: relative;" scope="col">
-                        <div id="value" style="word-wrap: break-word;width: 40vw"></div>
-                    </th>
-                </tr>
+                    <tr>
+                        <th scope="col" data-t="send-transaction.sum">Sum</th>
+                        <th style="position: relative;" scope="col"><div id="value" style="word-wrap: break-word;width: 40vw"></div></th>
+                    </tr>
                 </tbody>
                 <tbody>
-                <tr>
-                    <th scope="col" data-t="common.to">Address to send</th>
-                    <th style="position: relative;" scope="col">
-                        <div id="to" style="word-wrap: break-word;width: 40vw"></div>
-                    </th>
-                </tr>
+                    <tr>
+                        <th scope="col" data-t="send-transaction.currency">Currency</th>
+                        <th style="position: relative;" scope="col"><div id="currency" style="word-wrap: break-word;width: 40vw"></div></th>
+                    </tr>
                 </tbody>
-
                 <tbody>
-                <tr>
-                    <th scope="col" data-t="common.to">My address</th>
-                    <th style="position: relative;" scope="col">
-                        <div id="from" style="word-wrap: break-word;width: 40vw"></div>
-                    </th>
-                </tr>
+                    <tr>
+                        <th scope="col" data-t="common.to">To</th>
+                        <th style="position: relative;" scope="col"><div id="to" style="word-wrap: break-word;width: 40vw"></div></th>
+                    </tr>
                 </tbody>
-
+                <tbody>
+                    <tr>
+                        <th scope="col" data-t="common.to">From</th>
+                        <th style="position: relative;" scope="col"><div id="from" style="word-wrap: break-word;width: 40vw"></div></th>
+                    </tr>
+                </tbody>
             </table>
         </div>
-        <br>
-        <br>
     </div>
-    <div class="col-12 text-center">
-        <h2>Enter your pincode to sign transaction</h2>
-        <h1 style="display: none" id="badPin">Bad pincode!</h1>
-        <h1 id="txHash"></h1>
-        <input type="text" id="pincode">
-        <h1 id="data"></h1>
-        <button class="btn btn-primary btn-round btn-lg" id="sendBtn" onclick="sendEth()">Send</button>
+    <div class="row" style="margin-top: -50px">
+        <div class="container">
+            <div class="text-center col-12">
+                <form>
+                    <div class="form-group">
+                        <br>
+                        <label for="upload" id="upload-text" style="border-radius: 40px;" class="btn btn-outline">Upload QR Code</label>
+                        <br>
+                        <input style="margin: auto" multiple="multiple" type="file"  class="form-control-file" id="upload">
+                    </div>
+                </form>
+                <div id="file-upload-file"></div>
+                <div id="drop-area"></div>
+            </div>
+        </div>
     </div>
+    <p id="success"></p>
 </div>
+<div class="container" id="done" style="display: none">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="animCheck">
+        <div class="check"></div>
+    </div>
+    <br>
+    <h1 style="color: black; font-size: 55px; font-family: Sans-Serif" id="back-to-tg" align="center">
+        Sent
+    </h1>
 </div>
-<script>
-    $(document).ready(function () {
-        $('#pincode').pincodeInput({
-            hidedigits: true, inputs: 4, placeholders: "0 0 0 1", change: function (input, value, inputnumber) {
-                $("#pincode-callback2").html("onchange from input number " + inputnumber + ", current value: " + value);
-            }
-        });
-    });
-</script>
-
-<script src="../js/sendTx.js"></script>
-<script src="../js/lib/secure-ls.js"></script>
-<script src="../js/utils.js"></script>
+<script src="../static/js/lib/crypto-js.js"></script>
+<script src="../static/js/lib/jsQR.js"></script>
+<script src="../static/js/lib/binance.js"></script>
+<script src="../static/js/test.js"></script>
+<script src="../static/js/utils.js"></script>
+<script src="../static/js/send.js"></script>
 </body>
 </html>
