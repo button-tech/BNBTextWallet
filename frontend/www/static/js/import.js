@@ -1,7 +1,5 @@
 const backendURL = "https://discord.buttonwallet.tech";
 let info = document.getElementById("info");
-let files = [];
-
 
 function getImportShortLink() {
     const demand = ['import'];
@@ -60,9 +58,9 @@ function uploadLink(e) {
 
 function addFiles() {
     const file = document.querySelector("input[type=file]").files[0];
-    files[0] = file;
+    console.log(file)
     showFile(file);
-    document.getElementById("drop-area").innerHTML += `<div id="qr-pass" class="text-center col-12">
+    document.getElementById("drop-area").innerHTML = `<div id="qr-pass" class="text-center col-12">
                 <div class="form-group">
                     <label for="Password">
                         <h2">Enter your password</h2>
@@ -71,10 +69,7 @@ function addFiles() {
                     <input type="password" class="form-control" style="width: 200px;margin: 0 auto;" id="password" placeholder="Password">
                 </div>
                
-                <a class="btn btn-primary btn-lg btn-round"
-                   style="background-color: black; color:white; font-weight: bold" id="import-qr-code">
-                    Import
-                </a>
+                <button class="btn orange-button btn-round" id="import-qr-code">Import</button>
                 <br>
                 <br>
                 <br>

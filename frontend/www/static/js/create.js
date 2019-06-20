@@ -4,7 +4,7 @@ const backendURL = "https://discord.buttonwallet.tech";
 // Validation password
 let checkFlag = true;
 
-document.getElementById("createBtn").addEventListener("click", checkAllAndGeneratePicture);
+document.getElementById("create-button").addEventListener("click", checkAllAndGeneratePicture);
 document.addEventListener('keypress',function(e) {
     if(e.which === 13) {
         checkAllAndGeneratePicture();
@@ -150,7 +150,7 @@ async function addSaveButton(tag) {
         document.getElementById('save-qr').innerHTML = "<b>Press</b>  to Save";
         document.getElementById("container").innerHTML = `<img src="${image.src}" style="opacity: 0; position: absolute; width: 100%; height: 100%;">`+document.getElementById("container").innerHTML
     } else {
-        document.getElementById('save-qr-code').innerHTML = `<a href="${image.src}" download="BUTTONWallet.png"><button class="btn" style="border-radius: 40px;background-color: black">Download</button></a>`;
+        document.getElementById('save-qr-code').innerHTML = `<br><a href="${image.src}" download="BUTTONWallet.png"><button class="btn orange-button" style="border-radius: 40px;background-color: black">Download</button></a>`;
     }
 }
 
@@ -166,7 +166,7 @@ async function create(){
 
     localStorage.setItem("accountData", JSON.stringify(binanceObject));
 
-    let createButton = document.getElementById("createBtn");
+    let createButton = document.getElementById("create-button");
 
     createButton.style.display = "none";
 

@@ -12,24 +12,25 @@
     <title>Create</title>
 
 </head>
-<footer>
-    <img src="../static/img/preview.png" width="210px" style="display: block;margin-left: auto;margin-right: auto">
-</footer>
 <body>
 <div id="container">
     <div id="main">
+        <div>
+            <img src="../static/img/binance.png" id="logo">
+        </div>
         <div class="col-12 text-center">
             <h2 id="info">Create account</h2>
+            <div>
                 <input type="password" placeholder="Password" id="password"
-                           class="form-control" style="width: 200px;margin: 0 auto;"/>
+                   class="form-control" style="width: 200px;margin: 0 auto;"/>
 
                 <div id="password-info" class="password-info">
                     <p id="password-info-len"><i class="material-icons text-danger"></i> <span>Length
                                         must be at least 8
                                         characters</span></p>
                     <p id="password-info-cap"><i class="material-icons text-danger"></i>At
-                                        least one capital
-                                        character</span>
+                        least one capital
+                        character</span>
                     </p>
                     <p id="password-info-small"><i class="material-icons text-danger"></i> <span>At
                                         least one small
@@ -40,15 +41,16 @@
                                         character</span>
                     </p>
                 </div>
-                    <input autocomplete="off" type="password" placeholder="Repeat password" id="password-again"
-                           class="form-control" class="form-control" style="width: 200px;margin: 0 auto;"/>
-                <div style="margin-top: 10px; display: none" id="repeat-password"
-                     class="repeat-info">
-                    <p style="font-weight: bold; color: red; font-size: 12px;"><i
-                            style="font-size: 9px; font-weight: bold"
-                            class="material-icons text-danger"></i> <span>Passwords don't match</span></p>
+                <input autocomplete="off" type="password" placeholder="Repeat password" id="password-again"
+                       class="form-control" class="form-control" style="width: 200px;margin: 0 auto;"/>
+                <div style="margin-top: 10px; display: none" id="repeat-password" class="repeat-info">
+                    <p style="font-weight: bold; color: red; font-size: 12px;"><i style="font-size: 9px; font-weight: bold" class="material-icons text-danger"></i>
+                        <span>Passwords don't match</span>
+                    </p>
                 </div>
-                <button class="btn" style="border-radius: 40px;background-color: black" id="createBtn">Create</button>
+                <button class="btn orange-button btn-round" id="create-button" style="margin-top: 15px">Create</button>
+            </div>
+
         </div>
     </div>
 </div>

@@ -1,3 +1,15 @@
+#logo {
+    display: block;
+    margin: 80px auto 0 auto;
+    width: 350px
+}
+
+.orange-button {
+    background-color: rgb(255, 203, 67) !important;
+    color: white;
+    margin-top: 15px;
+}
+
 .form-group {
     color: black !important;
 }
@@ -117,7 +129,7 @@ body {
     right: 0;
     height: 56px;
     content: "";
-    background-image: url("../img/open.png");
+    /*background-image: url("../img/open.png");*/
     display: block;
     margin: 0 auto;
     background-size: 100%;

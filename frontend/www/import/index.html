@@ -11,26 +11,28 @@
     <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
     <title>Import</title>
 </head>
-<footer>
-    <img src="../static/img/preview.png" width="210px" style="display: block;margin-left: auto;margin-right: auto">
-</footer>
 <body>
-
-
+<canvas id="canvas" width="300" height="300" style="display: none"></canvas>
+<img src="#" id="qrImage" align="left" style="display: none">
 <div id="main" style="display: block">
     <p id="error"></p>
     <p id="success"></p>
     <div class="container">
-        <div id="drop-area" class="text-center col-12">
+        <div>
+            <img src="../static/img/binance.png" id="logo">
+        </div>
+        <div class="text-center col-12">
             <form>
-                <div class="form-group">
+                <div class="form-group files">
                     <br>
-                    <label for="upload" id="upload-text" style="border-radius: 40px;" class="btn btn-outline">Upload QR Code</label>
+                    <label for="upload" class="btn orange-button btn-round" id="upload-text">Upload QR Code</label>
+                    <!--<label for="upload" id="upload-text" style="border-radius: 40px;" class="btn btn-outline">Upload QR Code</label>-->
                     <br>
-                    <input style="margin: auto" multiple="multiple" type="file"  class="form-control-file" id="upload">
+                    <input style="margin: auto;" type="file" multiple="" class="form-control-file" id="upload">
                 </div>
             </form>
             <div id="file-upload-file"></div>
+            <div id="drop-area"></div>
         </div>
     </div>
 </div>
