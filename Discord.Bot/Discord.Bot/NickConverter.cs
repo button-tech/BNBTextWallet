@@ -23,9 +23,6 @@ namespace Discord.Bot
             if (EthRegex.IsMatch(inp) || IsBNB(inp))
                 return (inp, TransactionDestination.Wallet);
 
-            if (inp.Contains('.'))
-                return (inp, TransactionDestination.ENS);
-
 
             return (inp, TransactionDestination.Nick);
         }

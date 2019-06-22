@@ -42,6 +42,7 @@
                 FrontAddress = ReadEnv("FRONT_ADDRESS"),
                 ButtonNodeApi = ReadEnv("BUTTON_API")
             };
+           
 
             services.AddSingleton(hostConfig);
 

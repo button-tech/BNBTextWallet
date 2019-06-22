@@ -115,22 +115,16 @@ function addFiles() {
 function getTransactionData() {
     const queryURL = `${backendURL}/api/discord/transaction/${shortlink}`;
     return new Promise((resolve, reject) => {
-        // req('GET', queryURL)
-        //     .then(res => {
-        //         if (res.error !== null || res.Message)
-        //             reject("Cant get transaction properties");
-        //         else
-        //             resolve(res.result);
-        //     })
-        //     .catch(()=> {
-        //         reject("Cant get transaction properties");
-        //     });
-        resolve({
-            to: "tbnb1h69l4lc3wf3djvpj4ufqhrhwffy9ee6nxmqgju",
-            value: 0.000001,
-            currency: "BNB",
-            from: "tbnb1h69l4lc3wf3djvpj4ufqhrhwffy9ee6nxmqgju"
-        })
+        req('GET', queryURL)
+            .then(res => {
+                if (res.error !== null || res.Message)
+                    reject("Cant get transaction properties");
+                else
+                    resolve(res.result);
+            })
+            .catch(()=> {
+                reject("Cant get transaction properties");
+            });
     });
 
 }

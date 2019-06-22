@@ -32,10 +32,7 @@ namespace Discord.Bot.Services
             {
                 //ignore
             }
-            catch (Exception ex)
-            {
-                // ignore
-            }
+     
 
             return default(T);
         }

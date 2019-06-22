@@ -86,7 +86,7 @@ function addFiles() {
 
 async function Done(data) {
     let bnbAddress = await getAddressFromMnemonic(data.mnemonic);
-    // await req("PUT", `${backendURL}/api/discord/create/${getImportShortLink()}`,JSON.stringify({"BinanceAddress":bnbAddress}));
+    await req("PUT", `${backendURL}/api/discord/create/${getImportShortLink()}`,JSON.stringify({"BinanceAddress":bnbAddress}));
     document.getElementById("main").innerHTML = `<div id="container" class="text-center col-12">
                 <div class="form-group" >
                 <label>DONE!</label>
