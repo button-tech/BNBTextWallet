@@ -16,7 +16,6 @@ namespace Discord.Bot
         private readonly CoursesService coursesService;
         private readonly BalanceService balanceService;
         private readonly AccountService accountService;
-        private readonly BinanceService binanceService;
         private readonly HostConfig config;
         private readonly DiscordSocketClient client;
 
@@ -24,14 +23,13 @@ namespace Discord.Bot
             CoursesService coursesService,
             BalanceService balanceService,
             AccountService accountService,
-            BinanceService binanceService,
+
             HostConfig config)
         {
             this.guidService = guidService;
             this.coursesService = coursesService;
             this.balanceService = balanceService;
             this.accountService = accountService;
-            this.binanceService = binanceService;
             this.config = config;
 
             client = new DiscordSocketClient();
@@ -81,18 +79,6 @@ namespace Discord.Bot
             if (message.Content.Contains("/send"))
                 await Send(message);
 
-            if (message.Content.Contains("/symbols"))
-                await Symbols(message);
-
-            if (message.Content.Contains("/orders"))
-                await Orders(message);
-
-            if (message.Content.Contains("/sell_order"))
-                await SellOrder(message);
-
-            if (message.Content.Contains("/buy_order"))
-                await BuyOrder(message);
-
             if (message.Content.Contains("/address"))
                 await Address(message);
         }
@@ -131,42 +117,12 @@ namespace Discord.Bot
             await message.Channel.SendMessageAsync(url);
         }
 
-        private async Task Orders(SocketMessage message)
-        {
-            var author = message.Author;
 
-            var orders = await binanceService.GetOrders(author.Id);
-
-            if (orders?.order.Length == 0)
-                await message.Channel.SendMessageAsync("You have no open orders :(");
-            else
-            {
-                var text = orders?.order.Take(10).Select(x => $"{x.ToString()}\n")
-                    .Aggregate("", (s, s1) => s + s1);
-
-                await message.Channel.SendMessageAsync(text);
-            }
-        }
-
-        private async Task Symbols(SocketMessage message)
-        {
-            var count = message.Content.Split(' ');
-            var toSelect = 10;
-            if (count.Length > 1)
-                toSelect = int.Parse(count[1]);
-
-            var symbolMaps = await binanceService.GetSymbols();
-
-            var result = symbolMaps.Take(toSelect).Select(x => $"{x.ToString()}\n")
-                .Aggregate("", (s, s1) => s + s1);
-
-            await message.Channel.SendMessageAsync(result);
-        }
-
+   
         private async Task Help(SocketMessage message)
         {
             const string text =
-                "**Hello**, welcome to the BUTTON Wallet on Discord. You can send **BNB** transactions and trade on **DEX**! \nJust enter any of this commands.\n\n**Command  Parameters  Description **\n\n**/create** - *Create a wallet*\n\n**/import** - *Import a wallet*\n\n**/balance** - *Balance of all current currencies*\n\n**/send** (amount) (address or nickname) - *Send a crypto*\n\n**/sell_order** (symbol) (amount) (price) - *Put a sell order on Binance DEX* 🔶\n\n**/buy_order** (symbol) (amount) (price) - *Put a buy order on Binance DEX* 🔶\n\n**/orders** - *Show all your Binance DEX orders* 🔥\n\n**/symbols** - *Show all Binance DEX exchange pairs* 🔄";
+                "**Hello**, welcome to the BUTTON Wallet on Discord. You can create accout or import QR/mnemonic and send **BNB** to your friedns! \nJust enter any of this commands.\n\n**Command  Parameters  Description **\n\n**/create** - *Create a wallet*\n\n**/import** - *Import a wallet*\n\n**/balance** - *Balance of all current currencies*\n\n**/send** (amount) (address or nickname) - *Send BNB*";
 
             await message.Channel.SendMessageAsync(text);
         }
