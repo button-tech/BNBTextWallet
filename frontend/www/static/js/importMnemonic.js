@@ -90,7 +90,7 @@ async function importMnemonic(){
         console.log(e);
         return
     }
-    
+
     showQrPage(qrId);
     await createQRCode(qrId, encrypted);
     await addSaveButton(qrId);

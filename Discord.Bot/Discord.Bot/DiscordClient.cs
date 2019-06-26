@@ -97,7 +97,7 @@ namespace Discord.Bot
         private async Task Help(SocketMessage message)
         {
             const string text =
-                "**Hello**, welcome to the BUTTON Wallet on Discord. You can create accout or import QR/mnemonic and send **BNB** to your friedns! \nJust enter any of this commands.\n\n**Command  Parameters  Description **\n\n**/create** - *Create a wallet*\n\n**/import** - *Import a wallet*\n\n**/balance** - *Balance of all current currencies*\n\n**/send** (amount) (address or nickname) - *Send BNB*";
+                "**Hello**, welcome to the BUTTON Wallet on Discord. You can create accout or import QR/mnemonic and send **BNB** to your friedns! \nJust enter any of this commands.\n\n**Command  Parameters  Description **\n\n**/create** - *Create a wallet*\n\n**/import** - *Import a wallet*\n\n**/balance** - *Balance of all current currencies*\n\n**/send** (amount) (address or nickname) - *Send BNB*\n\n**/address** - *Get your BNB address*";
 
             await message.Channel.SendMessageAsync(text);
         }
