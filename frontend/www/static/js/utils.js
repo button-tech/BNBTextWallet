@@ -1,3 +1,5 @@
+const backendURL = "https://discord.buttonwallet.tech";
+
 async function req(method, url, data) {
     const settings = {
         async: true,

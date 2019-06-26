@@ -88,37 +88,12 @@ namespace Discord.Bot
             var author = message.Author;
             var acc = await accountService.ReadUser(author.Id);
 
-            var text = $"Ethereum\n{acc.EthereumAddress}\n\nBinance Coin\n{acc.BinanceAddress}";
+            var text = $"Binance Coin\n{acc.BinanceAddress}";
 
             await message.Channel.SendMessageAsync(text);
         }
 
-        private async Task BuyOrder(SocketMessage message)
-        {
-            var args = message.Content.Split(' ');
-            var symbol = args[1];
-            var amount = args[2];
-            var price = args[3];
 
-            var url = $"{config.FrontAddress}/dex/?operation=buy&amount={amount}&price={price}&symbol={symbol}";
-
-            await message.Channel.SendMessageAsync(url);
-        }
-
-        private async Task SellOrder(SocketMessage message)
-        {
-            var args = message.Content.Split(' ');
-            var symbol = args[1];
-            var amount = args[2];
-            var price = args[3];
-
-            var url = $"{config.FrontAddress}/dex/?operation=sell&amount={amount}&price={price}&symbol={symbol}";
-
-            await message.Channel.SendMessageAsync(url);
-        }
-
-
-   
         private async Task Help(SocketMessage message)
         {
             const string text =
@@ -172,13 +147,13 @@ namespace Discord.Bot
         {
             var author = message.Author;
 
-            var acc = await accountService.ReadUser(author.Id);
-            if (acc != null)
-            {
-                var text = "Sorry, you already registered :(";
-                await message.Channel.SendMessageAsync(text);
-                return;
-            }
+        //    var acc = await accountService.ReadUser(author.Id);
+        //    if (acc != null)
+         //   {
+          //      var text = "Sorry, you already registered :(";
+          //      await message.Channel.SendMessageAsync(text);
+           //     return;
+           // }
 
             var guid = await guidService.GenerateString(author.Id, author.Username);
 

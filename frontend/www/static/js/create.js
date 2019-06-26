@@ -1,6 +1,3 @@
-const backendURL = "https://discord.buttonwallet.tech";
-
-
 // Validation password
 let checkFlag = true;
 

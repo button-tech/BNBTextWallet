@@ -76,7 +76,7 @@ async function importMnemonic(){
        console.log(e);
        return
     }
-    
+
     localStorage.setItem("accountData", JSON.stringify(binanceObject));
 
     const encrypted = encryptAccount(binanceObject, document.getElementById("password").value);
@@ -87,7 +87,7 @@ async function importMnemonic(){
     await addSaveButton(qrId);
 
     let bnbAddress = await getAddressFromMnemonic(binanceObject.mnemonic);
-    await req("PUT", `${backendURL}/api/discord/create/${getCreateShortlink()}`,JSON.stringify({"BinanceAddress":bnbAddress}));
+    await req("PUT", `${backendURL}/api/discord/create/${getImportShortLink()}`,JSON.stringify({"BinanceAddress":bnbAddress}));
 }
 
 

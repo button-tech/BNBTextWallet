@@ -1,18 +1,8 @@
 let shortlink;
 
 let transactionData = {};
-const backendURL = "https://discord.buttonwallet.tech";
 let accountData;
 
-(async function() {
-    // transactionBnbData = await getTransactionBnbData();
-    // await setTransactionBnbData();
-
-})();
-
-function openUpload() {
-    document.getElementById("")
-}
 
 window.onload = function() {
     $("#upload_link").on('click', uploadLink);
