@@ -112,9 +112,7 @@ namespace Discord.Bot
 
             var bnbText = FormatBalance("BNB", " Binance Coin", bnb, bnbUsd);
 
-            var totalSum = $"Total ≈ {bnbUsd:0.00}$";
-
-            var answer = $"{bnbText}{totalSum}";
+            var answer = $"{bnbText}";
 
             await message.Channel.SendMessageAsync(answer);
         }

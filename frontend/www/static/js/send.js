@@ -19,7 +19,7 @@ window.onload = function() {
                 accountData = JSON.parse(privateData);
                 send(accountData.mnemonic, transactionData)
                     .then(txHash => {
-                        console.log(txHash)
+                        console.log(txHash);
                         loader.close();
                         document.getElementById("container").style.display = "none";
                         addDoneView();
@@ -54,7 +54,7 @@ function setTransactionHash(txHash) {
 function send(mnemonic, transactionData) {
     return signTx(mnemonic, transactionData.to, transactionData.value, transactionData.currency)
         .then(res => {
-            console.log(res)
+            console.log(res);
             return res.result[0].hash;
         })
 }
