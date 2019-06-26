@@ -38,8 +38,12 @@ async function getMnemonic() {
 }
 
 async function getAddressFromMnemonic(mnemonic) {
-        let prvtKey = Binance.Binance.crypto.getPrivateKeyFromMnemonic(mnemonic);
-        return Binance.Binance.crypto.getAddressFromPrivateKey(prvtKey);
+    let prvtKey = Binance.Binance.crypto.getPrivateKeyFromMnemonic(mnemonic);
+    return Binance.Binance.crypto.getAddressFromPrivateKey(prvtKey);
+}
+
+async function getPrivateKeyFromMnemonic(mnemonic) {
+    return Binance.Binance.crypto.getPrivateKeyFromMnemonic(mnemonic);
 }
 
 // Returns list of all tokens on address
@@ -62,32 +66,4 @@ async function signTx(mnemonic, to, sum, symbol = "BNB", message = "Frontend Tx"
     const sequence = account.result && account.result.sequence;
 
     return client.transfer(addr, to, sum, symbol, message, sequence);
-}
-
-// CreateOrder
-// symbol - exchange symbol (like 000-EF6_BNB)
-// type - sell or buy
-// amount - 1 is 1 BNB
-// price = price :)
-async function createOrder(symbol, type, amount, price) {
-    var final = 0;
-    if (type === "sell") {
-        final = 2;
-    } else if (type === "buy") {
-        final = 1
-    }
-    TESTNET_ENDPOINT = "https://testnet-dex.binance.org";
-
-    const client = await getClient(true);
-    const addr = Binance.Binance.crypto.getAddressFromPrivateKey(client.privateKey);
-    const accCode = Binance.Binance.crypto.decodeAddress(addr);
-    const account = await client._httpClient.request("get", `/api/v1/account/${addr}`);
-    const sequence = account.result && account.result.sequence;
-    return await client.placeOrder(addr, symbol, final, price, amount, sequence)
-}
-
-async function Markets() {
-    const client = await getClient(true);
-    res = await client.getMarkets(150);
-    console.log(res)
 }

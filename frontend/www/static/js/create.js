@@ -23,100 +23,6 @@ function checkAllAndGeneratePicture() {
 $('#password').on('input', checkPassword);
 $('#password-again').on('input', checkRepeatPassword);
 
-function checkPassword() {
-    $('#password').toggleClass(function () {
-        const checkList = {
-            numberConstraint: {
-                condition: RegExp(/[0-9]/).test($('#password').val()),
-                id: "password-info-num",
-                action: () => {
-                }
-            },
-            lenConstraint: {
-                condition: $(this).val().length >= 8,
-                id: "password-info-len",
-                action: () => {
-                }
-            },
-            capConstraint: {
-                condition: RegExp(/(?=.*[A-Z])/).test($('#password').val()),
-                id: "password-info-cap",
-                action: () => {
-                }
-            },
-            smallConstraint: {
-                condition: RegExp(/(?=.*[a-z])/).test($('#password').val()),
-                id: "password-info-small",
-                action: () => {
-                }
-            },
-            repeatPassword: {
-                condition: null,
-                id: "repeat-password",
-                action: () => {
-                    if ($('#password-again').val().length > 0) {
-                        if ($('#password').val() === $('#password-again').val()) {
-                            $('#password-again').removeClass("unvalidated");
-                            $('#password-again').addClass("validated");
-                            $(`#repeat-password`).fadeOut(600);
-                        } else if ($('#password-again').val().length === 0) {
-                            $('#password-again').removeClass("validated");
-                            $('#password-again').removeClass("unvalidated");
-                            checkFlag = false;
-                            $(`#repeat-password`).fadeOut(600);
-                        } else {
-                            $('#password-again').removeClass("validated");
-                            $('#password-again').addClass("unvalidated");
-                            checkFlag = false;
-                            $(`#repeat-password`).fadeIn(600);
-                        }
-                    }
-                }
-            }
-        };
-        let invalid = false;
-        for (let i in checkList) {
-            const specificObject = checkList[i];
-            const specificCondition = specificObject.condition;
-            const specificId = specificObject.id;
-            const action = specificObject.action;
-            if (specificCondition === false) {
-                $(`#${specificId}`).fadeIn(600);
-                $(this).removeClass("validated");
-                invalid = true;
-                checkFlag = false;
-            } else if (specificCondition === true) {
-                $(`#${specificId}`).fadeOut(600);
-                $(this).removeClass("unvalidated");
-            }
-
-            action();
-        }
-        return invalid === true ? "unvalidated" : "validated";
-    }, true);
-}
-function checkRepeatPassword() {
-    $('#password-again').toggleClass(function () {
-        if ($('#password-again').val().length === 0) {
-            $('#password-again').removeClass("unvalidated");
-            $('#password-again').removeClass("validated");
-            checkFlag = false;
-            $('#repeat-password').fadeOut(600);
-            return "form-data";
-        } else if ($('#password').val() === $('#password-again').val()) {
-            $('#repeat-password').fadeOut(600);
-            $('#password-again').removeClass("unvalidated");
-            return "validated";
-        } else {
-            $('#repeat-password').fadeIn(600);
-            $('#password-again').removeClass("validated");
-            checkFlag = false;
-            return "unvalidated";
-        }
-    }, true);
-}
-
-
 function getCreateShortlink() {
     const demand = ['create'];
     const url = window.location;
@@ -131,18 +37,6 @@ function getCreateShortlink() {
     return urlData.create;
 }
 
-function createQRCode(tagForQR, data) {
-    console.log(data)
-    return new Promise((resolve) => {
-        const qr = new QRious({
-            element: document.getElementById(tagForQR),
-            value: data
-        });
-        qr.size = 300;
-
-        resolve(true);
-    });
-}
 
 async function addSaveButton(tag) {
     const image = document.getElementById(tag);
@@ -153,12 +47,6 @@ async function addSaveButton(tag) {
         document.getElementById('save-qr-code').innerHTML = `<br><a href="${image.src}" download="BUTTONWallet.png"><button class="btn orange-button" style="border-radius: 40px;background-color: black">Download</button></a>`;
     }
 }
-
-function encryptAccount(binanceObject, password) {
-    const encrypted = CryptoJS.AES.encrypt(JSON.stringify(binanceObject), password);
-    return encrypted.toString();
-}
-
 
 async function create(){
 

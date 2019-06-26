@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/css/custom.css" rel="stylesheet">
+    <link href="../../static/css/material-kit.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.0.js" integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo=" crossorigin="anonymous"></script>
+    <title>Import</title>
+</head>
+<body>
+<div id="container">
+    <div id="main">
+        <div class="col-12 text-center">
+            <h2 id="info">Import Mnemonic</h2>
+            <div>
+
+                <div class="text-center col-12">
+                    <input autocomplete="off" type="password" placeholder="Paste mnemonic" id="mnemonic"
+                           class="form-control" style="width: 300px;margin: 0 auto; margin-top: 30px"/>
+                </div>
+
+                <br>
+                Create a password
+                <input type="password" placeholder="Password" id="password"
+                       class="form-control" style="width: 200px;margin: 0 auto;"/>
+
+                <div id="password-info" class="password-info">
+                    <p id="password-info-len"><i class="material-icons text-danger"></i> <span>Length
+                                        must be at least 8
+                                        characters</span></p>
+                    <p id="password-info-cap"><i class="material-icons text-danger"></i>At
+                        least one capital
+                        character</span>
+                    </p>
+                    <p id="password-info-small"><i class="material-icons text-danger"></i> <span>At
+                                        least one small
+                                        character</span>
+                    </p>
+                    <p id="password-info-num"><i class="material-icons text-danger"></i> <span>At
+                                        least one number
+                                        character</span>
+                    </p>
+                </div>
+                <input autocomplete="off" type="password" placeholder="Repeat password" id="password-again"
+                       class="form-control" class="form-control" style="width: 200px;margin: 0 auto;"/>
+                <div style="margin-top: 10px; display: none" id="repeat-password" class="repeat-info">
+                    <p style="font-weight: bold; color: red; font-size: 12px;"><i style="font-size: 9px; font-weight: bold" class="material-icons text-danger"></i>
+                        <span>Passwords don't match</span>
+                    </p>
+                </div>
+                <button class="btn orange-button btn-round" id="import-qr-code" onclick="checkAllAndImportMnemonic()">Import</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="../../static/js/lib/popper.min.js"></script>
+<script src="../../static/js/lib/bootstrap-material-design.min.js"></script>
+<script src="../../static/js/lib/crypto-js.js"></script>
+<script src="../../static/js/lib/qrious.min.js"></script>
+<script src="../../static/js/lib/binance.js"></script>
+<script src="../../static/js/test.js"></script>
+<script src="../../static/js/utils.js"></script>
+<script src="../../static/js/importMnemonic.js"></script>
+</body>
+</html>

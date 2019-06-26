@@ -12,35 +12,38 @@
     <title>Import</title>
 </head>
 <body>
-<canvas id="canvas" width="300" height="300" style="display: none"></canvas>
-<img src="#" id="qrImage" align="left" style="display: none">
-<div id="main" style="display: block">
-    <p id="error"></p>
-    <p id="success"></p>
-    <div class="container">
+<div id="container">
+    <div id="main">
         <div>
             <img src="../static/img/binance.png" id="logo">
         </div>
-        <div class="text-center col-12">
-            <form>
-                <div class="form-group files">
-                    <br>
-                    <label for="upload" class="btn orange-button btn-round" id="upload-text">Upload QR Code</label>
-                    <!--<label for="upload" id="upload-text" style="border-radius: 40px;" class="btn btn-outline">Upload QR Code</label>-->
-                    <br>
-                    <input style="margin: auto;" type="file" multiple="" class="form-control-file" id="upload">
-                </div>
-            </form>
-            <div id="file-upload-file"></div>
-            <div id="drop-area"></div>
+        <div class="col-12 text-center">
+            <h2 id="info">Import account</h2>
+            <div>
+                <a id="qr" href="">
+                    <button class="btn orange-button btn-round"  style="margin-top: 20px; width: 130px">QR CODE</button>
+                </a>
+
+                <a id="mnemonic" href="">
+                    <button class="btn orange-button btn-round" style="margin-top: 15px">Mnemonic</button>
+                </a>
+
+            </div>
+
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    const url = window.location.origin + window.location.pathname;
+    const params = window.location.search;
+    document.getElementById('qr').setAttribute('href', `${url}qr/${params}`);
+    document.getElementById('mnemonic').setAttribute('href', `${url}mnemonic/${params}`);
+</script>
+<script src="../static/js/lib/popper.min.js"></script>
+<script src="../static/js/lib/bootstrap-material-design.min.js"></script>
 <script src="../static/js/lib/crypto-js.js"></script>
-<script src="../static/js/lib/jsQR.js"></script>
+<script src="../static/js/lib/qrious.min.js"></script>
 <script src="../static/js/lib/binance.js"></script>
-<script src="../static/js/test.js"></script>
-<script src="../static/js/utils.js"></script>
-<script src="../static/js/import.js" ></script>
 </body>
 </html>

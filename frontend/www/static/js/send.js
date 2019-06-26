@@ -17,7 +17,7 @@ function openUpload() {
 window.onload = function() {
     $("#upload_link").on('click', uploadLink);
     $("#upload").on("change", addFiles);
-    shortlink = getShortlink()
+    shortlink = getShortlink();
     getTransactionData()
         .then(data => {
             transactionData = data;
