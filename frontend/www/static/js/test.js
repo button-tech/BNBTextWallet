@@ -1,6 +1,6 @@
 let TESTNET_ENDPOINT = "https://testnet-dex-asiapacific.binance.org";
 // https://testnet-dex.binance.org
-var mnemonic = "offer caution gift cross surge pretty orange during eye soldier popular holiday mention east eight office fashion ill parrot vault rent devote earth cousin"; // your mnemonic
+var mnemonic = ""; // your mnemonic
 
 const getBaseClient = () => {
     return new Binance.Binance(TESTNET_ENDPOINT);
