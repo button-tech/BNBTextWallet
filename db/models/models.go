@@ -7,7 +7,6 @@ type User struct {
 }
 
 type TransactionData struct {
-
 	IdentifierFrom string  `json:"identifierFrom"`
 	NicknameFrom   string  `json:"nicknameFrom"`
 	IdentifierTo   string  `json:"identifierTo,omitempty"`

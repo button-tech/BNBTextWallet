@@ -12,7 +12,7 @@ type DiscordGuidStamp struct {
 }
 
 type TransactionData struct {
-	TxHash		   string  `json:"txHash" db:"TxHash"`
+	TxHash         string  `json:"txHash" db:"TxHash"`
 	IdentifierFrom string  `json:"identifierFrom" db:"FromIdentifier"`
 	NicknameFrom   string  `json:"nicknameFrom" db:"FromNick"`
 	IdentifierTo   string  `json:"identifierTo,omitempty" db:"ToIdentifier"`

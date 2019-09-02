@@ -1,14 +1,14 @@
 package main
 
 import (
-	"github.com/bwmarrin/discordgo"
-	"github.com/gin-contrib/cors"
-	"github.com/gin-gonic/gin"
 	"github.com/button-tech/BNBTextWallet/config"
 	"github.com/button-tech/BNBTextWallet/db"
 	"github.com/button-tech/BNBTextWallet/handlers"
 	"github.com/button-tech/BNBTextWallet/repositories/redisRepository"
 	"github.com/button-tech/BNBTextWallet/services/discordClient"
+	"github.com/bwmarrin/discordgo"
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 	"log"
 )
 

@@ -1,13 +1,13 @@
 package handlers
 
 import (
-	"github.com/gin-gonic/gin"
 	"github.com/button-tech/BNBTextWallet/db"
 	"github.com/button-tech/BNBTextWallet/db/models"
 	"github.com/button-tech/BNBTextWallet/messages"
 	. "github.com/button-tech/BNBTextWallet/services/discordClient"
 	"github.com/button-tech/BNBTextWallet/services/discordUserProvider"
 	"github.com/button-tech/BNBTextWallet/services/guidService"
+	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
 )

@@ -23,5 +23,5 @@ func (ctx *Pages) ImportView() {
 		return
 	}
 
-	ctx.SendMessage(messages.BuildUrl("/import/?import="+strGuid))
+	ctx.SendMessage(messages.BuildUrl("/import/?import=" + strGuid))
 }

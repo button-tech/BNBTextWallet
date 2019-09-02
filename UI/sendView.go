@@ -57,7 +57,7 @@ func (ctx *Pages) SendView() {
 		return
 	}
 
-	ctx.SendMessage(messages.BuildUrl("/send/?send="+strGuid))
+	ctx.SendMessage(messages.BuildUrl("/send/?send=" + strGuid))
 }
 
 func validMessageHelper(c string) (*converterService.SendData, error) {

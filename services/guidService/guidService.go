@@ -1,9 +1,9 @@
 package guidService
 
 import (
-	"github.com/google/uuid"
 	"github.com/button-tech/BNBTextWallet/data"
 	"github.com/button-tech/BNBTextWallet/services/redisService"
+	"github.com/google/uuid"
 	"time"
 )
 

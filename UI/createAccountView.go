@@ -26,7 +26,7 @@ func (ctx *Pages) CreateView() {
 	}
 
 	if userErr == nil && user.BnbAddress == "" {
-		ctx.SendMessage(messages.MsgForFollowLink+messages.BuildUrl("/create/?create="+strGuid))
+		ctx.SendMessage(messages.MsgForFollowLink + messages.BuildUrl("/create/?create="+strGuid))
 		return
 	}
 
@@ -41,5 +41,5 @@ func (ctx *Pages) CreateView() {
 		return
 	}
 
-	ctx.SendMessage(messages.MsgForFollowLink+messages.BuildUrl("/create/?create="+strGuid))
+	ctx.SendMessage(messages.MsgForFollowLink + messages.BuildUrl("/create/?create="+strGuid))
 }

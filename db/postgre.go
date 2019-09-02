@@ -37,7 +37,6 @@ func (r *PostgresRepository) CreateUser(user *models.User) error {
 	return err
 }
 
-
 func (r *PostgresRepository) UpdateUser(updatedUser *models.User) error {
 	_, err := r.db.Exec(`UPDATE "Users" set "Username"=$1, "BnbAddress"=$2, "Identifier"=$3 where "Identifier"=$4`,
 		updatedUser.Username, updatedUser.BnbAddress, updatedUser.Identifier, updatedUser.Identifier)

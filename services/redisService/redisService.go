@@ -2,9 +2,9 @@ package redisService
 
 import (
 	"encoding/json"
-	"github.com/imdario/mergo"
 	"github.com/button-tech/BNBTextWallet/data"
 	"github.com/button-tech/BNBTextWallet/repositories/redisRepository"
+	"github.com/imdario/mergo"
 	"time"
 )
 

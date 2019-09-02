@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"github.com/bwmarrin/discordgo"
 	"github.com/button-tech/BNBTextWallet/UI"
+	"github.com/bwmarrin/discordgo"
 	"strings"
 )
 

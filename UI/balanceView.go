@@ -42,5 +42,5 @@ func buildBalanceMessage(fData balanceUtils.FundsData) string {
 	}
 
 	return fmt.Sprintf(
-		messagePrefix+messages.BuildCodeMarkdown("%.8f ≈ " + sumInDollars), fData.Balance.Bnb)
+		messagePrefix+messages.BuildCodeMarkdown("%.8f ≈ "+sumInDollars), fData.Balance.Bnb)
 }
