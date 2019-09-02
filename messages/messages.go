@@ -2,7 +2,7 @@ package messages
 
 import (
 	"fmt"
-	"github.com/jeyldii/discordik/config"
+	"github.com/button-tech/BNBTextWallet/config"
 )
 
 var (

@@ -1,8 +1,8 @@
 package db
 
 import (
-	"github.com/jeyldii/discordik/data"
-	"github.com/jeyldii/discordik/db/models"
+	"github.com/button-tech/BNBTextWallet/data"
+	"github.com/button-tech/BNBTextWallet/db/models"
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 	"log"

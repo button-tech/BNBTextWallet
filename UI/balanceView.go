@@ -2,9 +2,9 @@ package UI
 
 import (
 	"fmt"
-	"github.com/jeyldii/discordik/messages"
-	"github.com/jeyldii/discordik/services/balanceUtils"
-	"github.com/jeyldii/discordik/services/discordUserProvider"
+	"github.com/button-tech/BNBTextWallet/messages"
+	"github.com/button-tech/BNBTextWallet/services/balanceUtils"
+	"github.com/button-tech/BNBTextWallet/services/discordUserProvider"
 )
 
 func (ctx *Pages) BalanceView() {

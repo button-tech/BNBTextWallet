@@ -1,11 +1,11 @@
 package UI
 
 import (
-	"github.com/jeyldii/discordik/data"
-	"github.com/jeyldii/discordik/db/models"
-	"github.com/jeyldii/discordik/messages"
-	"github.com/jeyldii/discordik/services/discordUserProvider"
-	"github.com/jeyldii/discordik/services/guidService"
+	"github.com/button-tech/BNBTextWallet/data"
+	"github.com/button-tech/BNBTextWallet/db/models"
+	"github.com/button-tech/BNBTextWallet/messages"
+	"github.com/button-tech/BNBTextWallet/services/discordUserProvider"
+	"github.com/button-tech/BNBTextWallet/services/guidService"
 )
 
 func (ctx *Pages) CreateView() {

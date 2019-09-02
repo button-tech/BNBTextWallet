@@ -1,8 +1,8 @@
 package converterService
 
 import (
-	"github.com/jeyldii/discordik/helpers"
-	"github.com/jeyldii/discordik/services/courseService"
+	"github.com/button-tech/BNBTextWallet/helpers"
+	"github.com/button-tech/BNBTextWallet/services/courseService"
 )
 
 type SendData struct {

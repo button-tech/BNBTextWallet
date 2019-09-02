@@ -1,8 +1,8 @@
 package balanceUtils
 
 import (
-	"github.com/jeyldii/discordik/services/balanceService"
-	"github.com/jeyldii/discordik/services/courseService"
+	"github.com/button-tech/BNBTextWallet/services/balanceService"
+	"github.com/button-tech/BNBTextWallet/services/courseService"
 	"log"
 	"sync"
 )

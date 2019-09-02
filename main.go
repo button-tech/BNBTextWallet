@@ -4,11 +4,11 @@ import (
 	"github.com/bwmarrin/discordgo"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/jeyldii/discordik/config"
-	"github.com/jeyldii/discordik/db"
-	"github.com/jeyldii/discordik/handlers"
-	"github.com/jeyldii/discordik/repositories/redisRepository"
-	"github.com/jeyldii/discordik/services/discordClient"
+	"github.com/button-tech/BNBTextWallet/config"
+	"github.com/button-tech/BNBTextWallet/db"
+	"github.com/button-tech/BNBTextWallet/handlers"
+	"github.com/button-tech/BNBTextWallet/repositories/redisRepository"
+	"github.com/button-tech/BNBTextWallet/services/discordClient"
 	"log"
 )
 

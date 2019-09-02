@@ -2,8 +2,8 @@ package guidService
 
 import (
 	"github.com/google/uuid"
-	"github.com/jeyldii/discordik/data"
-	"github.com/jeyldii/discordik/services/redisService"
+	"github.com/button-tech/BNBTextWallet/data"
+	"github.com/button-tech/BNBTextWallet/services/redisService"
 	"time"
 )
 

@@ -1,8 +1,8 @@
 package UI
 
 import (
-	"github.com/jeyldii/discordik/messages"
-	"github.com/jeyldii/discordik/services/redisService"
+	"github.com/button-tech/BNBTextWallet/messages"
+	"github.com/button-tech/BNBTextWallet/services/redisService"
 )
 
 func (ctx *Pages) CleanAccountView() {

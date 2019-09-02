@@ -3,8 +3,8 @@ package redisService
 import (
 	"encoding/json"
 	"github.com/imdario/mergo"
-	"github.com/jeyldii/discordik/data"
-	"github.com/jeyldii/discordik/repositories/redisRepository"
+	"github.com/button-tech/BNBTextWallet/data"
+	"github.com/button-tech/BNBTextWallet/repositories/redisRepository"
 	"time"
 )
 

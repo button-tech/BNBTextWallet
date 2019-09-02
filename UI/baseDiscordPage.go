@@ -2,7 +2,7 @@ package UI
 
 import (
 	"github.com/bwmarrin/discordgo"
-	. "github.com/jeyldii/discordik/services/discordClient"
+	. "github.com/button-tech/BNBTextWallet/services/discordClient"
 )
 
 type Pages struct {

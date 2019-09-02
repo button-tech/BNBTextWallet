@@ -1,13 +1,13 @@
 package UI
 
 import (
-	"github.com/jeyldii/discordik/data"
-	"github.com/jeyldii/discordik/errors"
-	"github.com/jeyldii/discordik/helpers"
-	"github.com/jeyldii/discordik/messages"
-	"github.com/jeyldii/discordik/services/converterService"
-	"github.com/jeyldii/discordik/services/discordUserProvider"
-	"github.com/jeyldii/discordik/services/guidService"
+	"github.com/button-tech/BNBTextWallet/data"
+	"github.com/button-tech/BNBTextWallet/errors"
+	"github.com/button-tech/BNBTextWallet/helpers"
+	"github.com/button-tech/BNBTextWallet/messages"
+	"github.com/button-tech/BNBTextWallet/services/converterService"
+	"github.com/button-tech/BNBTextWallet/services/discordUserProvider"
+	"github.com/button-tech/BNBTextWallet/services/guidService"
 	"regexp"
 	"strings"
 )

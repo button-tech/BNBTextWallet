@@ -3,9 +3,9 @@ package discordUserProvider
 import (
 	"encoding/json"
 	"github.com/imdario/mergo"
-	"github.com/jeyldii/discordik/db"
-	"github.com/jeyldii/discordik/db/models"
-	"github.com/jeyldii/discordik/repositories/propertiesRepository"
+	"github.com/button-tech/BNBTextWallet/db"
+	"github.com/button-tech/BNBTextWallet/db/models"
+	"github.com/button-tech/BNBTextWallet/repositories/propertiesRepository"
 )
 
 const userKey = "dbUser"

@@ -1,4 +1,4 @@
-module github.com/jeyldii/discordik
+module github.com/button-tech/BNBTextWallet
 
 go 1.12
 
@@ -16,4 +16,5 @@ require (
 	github.com/lib/pq v1.2.0
 	github.com/onsi/ginkgo v1.10.0 // indirect
 	github.com/onsi/gomega v1.7.0 // indirect
+	google.golang.org/appengine v1.6.2 // indirect
 )

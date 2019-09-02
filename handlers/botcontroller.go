@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"github.com/bwmarrin/discordgo"
-	"github.com/jeyldii/discordik/UI"
+	"github.com/button-tech/BNBTextWallet/UI"
 	"strings"
 )
 

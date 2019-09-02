@@ -1,7 +1,7 @@
 package UI
 
 import (
-	"github.com/jeyldii/discordik/messages"
+	"github.com/button-tech/BNBTextWallet/messages"
 )
 
 func (ctx *Pages) HelpView() {

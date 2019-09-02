@@ -2,12 +2,12 @@ package handlers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/jeyldii/discordik/db"
-	"github.com/jeyldii/discordik/db/models"
-	"github.com/jeyldii/discordik/messages"
-	. "github.com/jeyldii/discordik/services/discordClient"
-	"github.com/jeyldii/discordik/services/discordUserProvider"
-	"github.com/jeyldii/discordik/services/guidService"
+	"github.com/button-tech/BNBTextWallet/db"
+	"github.com/button-tech/BNBTextWallet/db/models"
+	"github.com/button-tech/BNBTextWallet/messages"
+	. "github.com/button-tech/BNBTextWallet/services/discordClient"
+	"github.com/button-tech/BNBTextWallet/services/discordUserProvider"
+	"github.com/button-tech/BNBTextWallet/services/guidService"
 	"log"
 	"net/http"
 )
