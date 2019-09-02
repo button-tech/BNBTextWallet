@@ -1,4 +1,4 @@
-const backendURL = "https://discord.buttonwallet.tech";
+const backendURL = "http://localhost:5000";
 
 async function req(method, url, data) {
     const settings = {
@@ -352,9 +352,9 @@ body {
 }`;
     document.getElementsByTagName('head')[0].appendChild(style);
     document.getElementById("done").style.display = 'block';
-    setTimeout(()=>{
+/*    setTimeout(()=>{
             window.close();
-    }, 2000)
+    }, 2000)*/
 }
 
 function addSuccess(successText) {

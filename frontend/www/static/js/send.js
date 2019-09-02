@@ -1,4 +1,4 @@
-let shortlink;
+const shortlink = getShortlink();
 
 let transactionData = {};
 let accountData;
@@ -7,7 +7,6 @@ let accountData;
 window.onload = function() {
     $("#upload_link").on('click', uploadLink);
     $("#upload").on("change", addFiles);
-    shortlink = getShortlink();
     getTransactionData()
         .then(data => {
             transactionData = data;
@@ -18,8 +17,9 @@ window.onload = function() {
             if (privateData) {
                 accountData = JSON.parse(privateData);
                 send(accountData.mnemonic, transactionData)
-                    .then(txHash => {
+                    .then(async txHash => {
                         console.log(txHash);
+                        await sendTxHash(txHash);
                         loader.close();
                         document.getElementById("container").style.display = "none";
                         addDoneView();
@@ -30,15 +30,20 @@ window.onload = function() {
                     })
             } else {
                 setTransactionData(transactionData.currency,
-                    transactionData.from,
-                    transactionData.to,
-                    transactionData.value);
+                    transactionData.addressFrom,
+                    transactionData.addressTo,
+                    transactionData.amount);
                 loader.close();
             }
         })
         .catch(console.log)
 
 };
+
+function sendTxHash(txHash) {
+    const queryURL = `${backendURL}/api/discord/transaction/${shortlink}`;
+    return req('POST', queryURL, JSON.stringify({"txHash": txHash}));
+}
 
 function setTransactionData(currency, from, to, value) {
     document.getElementById('currency').innerText = currency;
@@ -48,11 +53,11 @@ function setTransactionData(currency, from, to, value) {
 }
 
 function setTransactionHash(txHash) {
-    addSuccess(`<a href="https://testnet-explorer.binance.org/tx/${txHash}">https://testnet-explorer.binance.org/tx/${txHash}</a>`);
+    addSuccess(`<a href="https://explorer.binance.org/tx/${txHash}">https://explorer.binance.org/tx/${txHash}</a>`);
 }
 
 function send(mnemonic, transactionData) {
-    return signTx(mnemonic, transactionData.to, transactionData.value, transactionData.currency)
+    return signTx(mnemonic, transactionData.addressTo, transactionData.amount)
         .then(res => {
             console.log(res);
             return res.result[0].hash;
@@ -87,8 +92,9 @@ function addFiles() {
             .then(data => {
                 return send(JSON.parse(data).mnemonic, transactionData)
             })
-            .then(txHash => {
+            .then(async txHash => {
                 setTransactionHash(txHash);
+                await sendTxHash(txHash);
                 loader.close();
             })
             .catch(e => {
@@ -107,10 +113,10 @@ function getTransactionData() {
     return new Promise((resolve, reject) => {
         req('GET', queryURL)
             .then(res => {
-                if (res.error !== null || res.Message)
+                if (res.error !== undefined)
                     reject("Cant get transaction properties");
                 else
-                    resolve(res.result);
+                    resolve(res);
             })
             .catch(()=> {
                 reject("Cant get transaction properties");
@@ -122,5 +128,5 @@ function getTransactionData() {
 function getShortlink() {
     const url = window.location;
     const urlData = parseURL(url);
-    return urlData.tx;
+    return urlData.send;
 }

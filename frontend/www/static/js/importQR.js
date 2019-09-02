@@ -1,4 +1,3 @@
-const backendURL = "https://discord.buttonwallet.tech";
 let info = document.getElementById("info");
 
 function getImportShortLink() {
